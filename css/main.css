@@ -1,0 +1,453 @@
+/*==================夏麒麟  开始===================*/
+html {
+	/*因为引入了bootstrap库还有一些其他库，统一这个font-size*/ 
+	font-size: 10px !important;
+}
+body {
+	/*background: #000;*/
+}
+/*清除bootstrap内填充*/
+.clear-padding-left {
+	padding-left: 0;
+}
+.clear-padding-right {
+	padding-right: 0;
+}
+.padding-10 {
+	padding-left: 5px;
+}
+.padding-left-10 {
+	padding-right: 5px;
+}
+/*顶部背景条*/
+.top-bg {
+	/*height: 50px;
+	line-height: 50px;*/
+	height: 4rem;
+	line-height: 4rem;
+	color: #000;
+	font-size: 1.8rem;/*18px*/
+	background: #FFF;
+}
+/*顶部的按钮列表*/
+.top-icon-list>i {
+	margin-right: 1rem;
+}
+/*左上角信息提示面板*/
+.tips-pane {
+	color: #000;
+	/*font-size: 1.6rem;*/
+	/*border-right: 2rem solid;
+	-webkit-border-image: -webkit-gradient(linear, 0 0, 0 100%, from(#FFF), to(#0E0E0E));
+	-webkit-border-image: -webkit-linear-gradient(#FFF, #0E0E0E);
+	-moz-border-image: -moz-linear-gradient(#FFF, #0E0E0E);
+	-o-border-image: -o-linear-gradient(#FFF, #0E0E0E);
+	border-image: linear-gradient(#FFF, #0E0E0E) 30 30;*/
+	border: 2px solid #FFF;
+
+}
+.whiteLine {
+	border: 2px solid #FFF;
+	border-left: none;
+}
+.tips-pane .tips-item label{
+	float: left;
+}
+.tips-pane .tips-item span{
+	float: right;
+}
+/*中间部分的背景色*/
+.middle-bg {
+	background: #c3e4e9;
+	padding-top: 10px;
+}
+/*缩略图上面的标题*/
+.caption {
+	color: #000;
+}
+
+/*右侧缩略图*/
+.right-box {
+	color: #000;
+	border: 2px solid #FFF;
+	font-size: 16px;
+}
+
+
+/*右侧缩略图主体内容*/
+.right-content {
+	width: 100%;
+}
+/*缩略图功能面板*/
+.right-content img {
+	width: 100%;
+	height: 50px;
+	padding: 0 5px;
+	margin-top: 5px;
+}
+.right-footer {
+	padding-bottom: 6px;
+}
+.control-bg {
+	background: rgb(194,229,234);
+	border-bottom: 2px solid #FFF;
+}
+.panel-bg {
+	background: rgb(184,216,221);
+}
+
+.control-bg  .nav li {
+	width: 104px;
+	height: 40px;
+	border: 1px solid #00C7A0;
+	border-radius: 16px;
+	margin-top: 2px;
+	margin-bottom: 2px;
+	margin-right: 20px;
+	text-align: center;
+	overflow: hidden;
+}
+.nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover {
+	background: rgb(237,247,251);
+	border: none;
+	
+}
+.nav>li>a:focus, .nav>li>a:hover {
+	background: rgb(237,247,251);
+}
+
+
+/*重写按钮大小*/
+/*无论什么屏幕，按钮的公共样式*/
+.btn {
+	
+	color: #000;
+	background: #FFF;
+}
+
+.tab-content {
+	margin-top: 4px;
+	padding-top: 24px;
+	padding-bottom: 16px;
+	background: rgb(180,213,218);
+} 
+/*解决btn-group-*没有高度的问题*/
+.tab-content .btn-list {
+	width: 100%;
+}
+
+/*.tab-content .tab-pane .fa {
+	margin-right: 10px;
+}*/
+
+/*切换按钮*/
+.shift-btn {
+	position: relative;
+	width: 65px;
+	height: 60px;
+	/*margin-right: 20px;*/
+	/*margin-top: 20px;*/
+	cursor: pointer;
+}
+.shift-btn .half-circle {
+	position: absolute;
+	background: #30445C;
+	width: 30px;
+	height: 60px;
+	
+}
+.activeBtn {
+	background: #4169E1 !important;
+}
+
+.shift-btn .left {
+	left: 0;
+	top: 0;
+	border-radius: 30px 0 0 30px;
+	
+}
+.shift-btn .right {
+	left: 35px;
+	top: 0;
+	border-radius: 0 30px 30px 0;
+}
+.shift-btn .middle {
+	position: absolute;
+	left: 18px;
+	top: 18px;
+	width: 26px;
+	height: 26px;
+	line-height: 30px;
+	color: #FFF;
+	background-color: #99AAC4;
+	border-radius: 50%;
+	box-shadow: 0 0 5px #376939,
+				0 0 10px #176698,
+				0 0 15px #355C84;
+	text-align: center;
+	z-index: 2;
+}
+
+/*底部功能按钮*/
+.circle {
+	width: 70px;
+	height: 70px;
+	border: 4px solid #00c7a0;
+	border-radius: 50%;
+}
+.circle i {
+	margin-top: 10px;
+}
+.circle-sm {
+	width: 40px;
+	height: 40px;
+	border: 4px solid #00c7a0;
+	border-radius: 50%;
+}
+.circle-sm i {
+	margin-top: 5px;
+}
+
+/*针对三种屏幕进行按钮适配*/
+.tab-content .btn-group-sm {
+	width: 70px;
+	height: 70px;
+	font-size: 12px;
+	margin-right: 6px;
+	border-radius: 50% !important;
+}
+.tab-content .btn-group-md {
+	
+}
+.tab-content .btn-group-lg {
+	width: 100px;
+	height: 100px;
+	margin-right: 7%;
+	border-radius: 50% !important;
+}
+
+
+
+
+/*中间的圆圈*/
+.clear-bg {
+	background: transparent;
+}
+.circle-middle {
+	
+	width: 60px;
+	height: 60px;
+	border: 4px solid #00c7a0;
+	border-radius: 50%;
+	background: #FFF;
+}
+.circle-middle i {
+	margin-top: 0.37em;
+}
+/*sm尺寸下 中间控制按钮的*/
+.circle-middle-sm {
+	width: 40px;
+	height: 40px;
+	border: 4px solid #00c7a0;
+	border-radius: 50%;
+	background: #FFF;
+}
+.circle-middle-sm i {
+	/*margin-top: 0.37em;*/
+}
+/*控制中间按钮的上边距*/
+.marginTop-20 {
+	margin-top: 20px;
+}
+
+/*中间图像部分*/
+.image-header-info {
+	margin-top: 10px;
+	font-size: 16px;
+}
+.image-header-info .info-1 {
+	margin-right: 40px;
+}
+/*实时图像*/
+.image-online {
+	overflow: hidden;
+}
+/*去掉周围边框*/
+.thumbnail {
+	border: none;
+	padding: 0;
+} 
+
+
+
+/*针对缩略图高度，做媒体查询*/
+/*pad--sm*/
+@media screen and (max-width: 768px) {
+	.tips-pane {
+		height: 264px;
+	}
+	.right-content {
+		height: 210px;
+		overflow-y: auto;
+	}
+	.right-footer i {
+		margin-right: 10px;
+		font-size: 14px;
+	}
+}
+/*普通屏幕 -md*/
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+	.tips-pane {
+		height: 352px;
+	}
+	.right-content {
+		height: 296px;
+		overflow-y: auto;
+	}
+	.right-footer i {
+		margin-right: 16px;
+		font-size: 20px;
+	}
+}
+/*最大屏幕 pad pro --我自己的屏幕*/
+@media screen and (min-width: 1025px) and (max-width: 1366px) {
+	/*左侧*/
+	.tips-pane {
+		height: 435px;
+	}
+	/*.thumbnail>img{
+		max-height: 330px;
+	}*/
+	.right-content {
+		height: 375px;
+		overflow-y: auto;
+	}
+	.right-footer i {
+		margin-right: 20px;
+	
+		font-size: 26px;
+	}
+}
+@media screen and (min-width: 1367px)  {
+	.thumbnail>img{
+		max-height: 320px;
+	}
+	/*.right-content {
+		height: 400px;
+		overflow-y: auto;
+	}
+	.right-footer i {
+		
+		margin-right: 20px;
+		font-size: 26px;
+	}*/
+}
+/*图像部分结束*/
+
+
+/*测试类*/
+.red {
+	background: red;
+}
+.green {
+	background: green;
+}
+.yellow {
+	background: yellow;
+}
+/**/
+/*==================夏麒麟 结束===================*/
+
+
+/*==================梅帆 开始===================*/
+
+/*切换按钮*/
+/*.shift-btn3 {
+	position: relative;
+	width: 65px;
+	height: 60px;
+	margin-right: 20px;
+	cursor: pointer;
+}
+.shift-btn3 .half-circle {
+	position: absolute;
+	background: #30445C;
+	width: 30px;
+	height: 60px;
+	
+}
+.shift-btn3 .left {
+	left: 0;
+	top: 0;
+	border-radius: 30px 0 0 30px;
+	
+}
+.shift-btn3 .right {
+	left: 35px;
+	top: 0;
+	border-radius: 0 30px 30px 0;
+}
+.shift-btn3 .middle {
+	position: absolute;
+	left: 18px;
+	top: 18px;
+	width: 26px;
+	height: 26px;
+	line-height: 30px;
+	color: #FFF;
+	background-color: #99AAC4;
+	border-radius: 50%;
+	box-shadow: 0 0 5px #376939,
+				0 0 10px #176698,
+				0 0 15px #355C84;
+	text-align: center;
+	z-index: 2;
+}
+
+.shift-btn4 {
+	position: relative;
+	width: 65px;
+	height: 60px;
+	margin-right: 20px;
+	cursor: pointer;
+}
+.shift-btn4 .half-circle {
+	position: absolute;
+	background: #30445C;
+	width: 30px;
+	height: 60px;
+	
+}
+.shift-btn4 .left {
+	left: 0;
+	top: 0;
+	border-radius: 30px 0 0 30px;
+	
+}
+.shift-btn4 .right {
+	left: 35px;
+	top: 0;
+	border-radius: 0 30px 30px 0;
+}
+.shift-btn4 .middle{
+	position: absolute;
+	left: 18px;
+	top: 10px;
+	width: 40px;
+	height: 40px;
+	line-height: 30px;
+	color: #FFF;
+	background-color: #99AAC4;
+	border-radius: 50%;
+	box-shadow: 0 0 5px #376939,
+	0 0 10px #176698,
+	0 0 15px #355C84;
+	text-align: center;
+	z-index: 2;
+}
+.btn4-span{
+	display: block;
+	margin-top: 0.40rem;
+}*/
+
+/*==================梅帆 结束===================*/
