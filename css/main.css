@@ -404,6 +404,22 @@ body {
 
 /*==================梅帆 开始===================*/
 
+@media screen and (min-width: 1367px)  {
+	/*控制B菜单按钮的样式*/
+	.btnB-style{
+		margin-right: 70px;
+		!important
+	}
+}
+@media screen and (min-width: 1025px) and (max-width: 1366px) {
+	.btnB-style{
+		margin-right: 70px;
+		!important
+	}
+}
+
+
+
 /*切换按钮*/
 /*.shift-btn3 {
 	position: relative;
