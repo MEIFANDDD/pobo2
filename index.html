@@ -333,8 +333,8 @@
 				<!--功能-->
 				<div class="tab-pane fade in active" id="features">
 					<div class="row">
-						<div class="col-sm-5 col-md-4 col-lg-5">
-							<!--lg-->
+						<div class="col-sm-5 col-md-5 col-lg-5">
+
 							<div class="btn-group btn-group-1 btn-list " role="group">
 								<button class="btn btn-group-lg" type="button" data-toggle="modal" data-target="#info">
 									<div class="circle"><i class="fa fa-user-circle fa-2x"></i></div>
@@ -350,26 +350,36 @@
 								</button>
 							</div>
 							<div class="btn-group btn-group-2 btn-list" style="display: none;">
-								<button class="btn btn-group-lg" type="button"><i class="fa fa-edit"></i><span class="title">注释</span></button>
-								<button class="btn btn-group-lg" type="button"><i class="fa fa-save"></i>体标</button>
-								<button class="btn btn-group-lg" type="button"><i class="fa fa-list"></i>病人列表</button>
+								<button class="btn btn-group-lg" type="button">
+									<div class="circle"><i class="fa fa-edit fa-2x"></i></div>
+									<span class="title">注释</span>
+								</button>
+								<button class="btn btn-group-lg" type="button">
+									<div class="circle"><i class="fa fa-save fa-2x"></i></div>
+									<span>体标</span>
+								</button>
+								<button class="btn btn-group-lg" type="button">
+									<div class="circle"><i class="fa fa-list fa-2x"></i></div>
+									<span>病人列表</span>
+								</button>
 							</div>
-							<!--lg结束-->
+
 						</div>
 						<!--切换按钮-->
-						<div class="col-sm-2 col-md-3 col-lg-2">
+						<div class="col-sm-2 col-md-2 col-lg-2">
 							<!--lg-->
 							<div class="btn-group">
-								<button class="btn clear-bg" type="button">
+								<button class="btn clear-bg xia-btn-left" type="button">
 									<div class="circle-middle"><i class="fa fa-chevron-left fa-2x"></i></div>
 								</button>
-								<button class="btn clear-bg" type="button">
+								<button class="btn clear-bg xia-btn-right" type="button">
 									<div class="circle-middle"><i class="fa fa-chevron-right fa-2x"></i></div>
 								</button>
 							</div>
 						</div>
+
 						<div class="col-sm-5 col-md-3 col-lg-5">
-							<!--lg-->
+						
 							<div class="btn-group btn-group-1 btn-list" style="display: block;">
 								<button class="btn btn-group-lg" type="button" disabled="disabled">
 									<div class="circle"><i class="fa fa-wpexplorer fa-2x"></i></div>
@@ -386,9 +396,19 @@
 								</button>
 							</div>
 							<div class="btn-group btn-group-2 btn-list" style="display: none;">
-								<button class="btn btn-group-lg" type="button"><i class="fa fa-file-text"></i>报告</button>
-								<button class="btn btn-group-lg" type="button"><i class="fa fa-external-link-square"></i>箭头</button>
-								<button class="btn btn-group-lg" type="button"></button>
+								<button class="btn btn-group-lg" type="button">
+									<div class="circle">
+										<i class="fa fa-file-text fa-2x"></i>
+									</div>
+									<span>报告</span>
+								</button>
+								<button class="btn btn-group-lg" type="button">
+									<div class="circle">
+										<i class="fa fa-external-link-square fa-2x"></i>
+									</div>
+									<span>箭头</span>
+								</button>
+								<!--<button class="btn btn-group-lg" type="button"></button>-->
 							</div>
 							<!--lg结束-->
 						</div>
@@ -398,7 +418,7 @@
 				<div class="tab-pane fade" id="imageMode">
 					<div class="tab-pane fade in">
 						<div class="row">
-							<div class="col-sm-5 col-md-4 col-lg-5">
+							<div class="col-sm-5 col-md-5 col-lg-5">
 								<div class="btn-group btn-group-1 btn-list">
 									<button class="btn btn-group-lg" type="button">
 										<div class="circle">
@@ -419,28 +439,33 @@
 									</button>
 								</div>
 							</div>
-							<div class="col-sm-5 col-md-4 col-lg-5">
+							<!--这里可能有问题，检查标签闭合-->
+							<div class="col-sm-2 col-md-2 col-lg-2" style="visibility: hidden;">
+							</div>
+							
+							<div class="col-sm-5 col-md-5 col-lg-5">
 								<div class="btn-group btn-group-1 btn-list">
 									<button class="btn" type="button">
-											<div class="circle"><i class="fa fa-safari fa-1x"></i></div>
-										<span>Color</span>
-										</button>
+										<div class="circle"><i class="fa fa-safari fa-2x"></i></div>
+									<span>Color</span>
+									</button>
 									<button class="btn" type="button">
-											<div class="circle">
-												<i class="fa fa-adn fa-2x"></i>
-											</div>
-											<span>Power</span>
-										</button>
+										<div class="circle">
+											<i class="fa fa-adn fa-2x"></i>
+										</div>
+										<span>Power</span>
+									</button>
 									<button class="btn" type="button">
-											<div class="circle"><i class="fa fa-ra fa-1x"></i></div>
-											<span>PW</span>
-										</button>
+										<div class="circle"><i class="fa fa-ra fa-2x"></i></div>
+										<span>PW</span>
+									</button>
 								</div>
 
 							</div>
 						</div>
 					</div>
 				</div>
+
 				<!--B-->
 				<div class="tab-pane fade" id="B">
 					<div class="row">
@@ -459,6 +484,9 @@
 									<span>频率</span>
 								</button>
 							</div>
+							
+							
+							
 							<div class="btn-group btn-group-2 btn-list" style="display: none;">
 								<button class="btn btn-group-lg" type="button">
 									<div class="circle"><i class="fa fa-user-circle fa-2x"></i></div>
@@ -473,6 +501,7 @@
 									<span>病人列表</span>
 								</button>
 							</div>
+							
 							<div class="btn-group btn-group-3 btn-list" style="display: none;">
 								<button class="btn btn-group-lg" type="button">
 									<div class="circle"><i class="fa fa-user-circle fa-2x"></i></div>
@@ -487,6 +516,7 @@
 									<span>垂直旋转</span>
 								</button>
 							</div>
+							
 						</div>
 						<!--切换按钮-->
 						<div class="col-sm-4 col-md-4 col-lg-3">
@@ -502,6 +532,9 @@
 								</button>
 							</div>
 						</div>
+
+			<!--这里可能会少闭合标签-->
+
 						<div class="col-sm-5 col-md-3 col-lg-5">
 							<div class="btn-group btn-group-1 btn-list" style="display: block;">
 								<button class="btn btn-group-lg">
@@ -536,10 +569,13 @@
 									<div class="circle"><i class="fa fa-user-circle fa-2x"></i></div>
 									<span>穿刺</span>
 								</button>
+
 							</div>
 						</div>
+					
 					</div>
 				</div>
+
 				<!--C-->
 				<div class="tab-pane fade" id="C">
 					<div class="row">
@@ -581,9 +617,11 @@
 							</div>
 						</div>
 					</div>	
+
 				</div>
 			</div>
 		</div>
+
 
 		<!--按钮控制面板 结束-->
 
@@ -1008,21 +1046,26 @@
 
 		$(function() {
 			console.log(1);
+			// 功能面板--左侧2组元素--夏
 			let btnGroup1 = $(".btn-group-1");
+			// 功能面板--右侧2组元素--夏
 			let btnGroup2 = $(".btn-group-2");
 
 			// 切换按钮
-			$(".shift-btn .left").click(function() {
-				btnGroup1.show();
-				btnGroup2.hide();
-				$(".shift-btn .right").removeClass("activeBtn");
-				$(this).addClass("activeBtn");
+			$(".xia-btn-left").click(function() {
+				btnGroup1.fadeIn().show();
+				btnGroup2.fadeOut().hide();
+
+				$(".xia-btn-right").find(".circle-middle").removeClass("activeBtn");
+				$(this).find(".circle-middle").addClass("activeBtn");
 			});
-			$(".shift-btn .right").click(function() {
-				btnGroup1.hide();
-				btnGroup2.show();
-				$(".shift-btn .left").removeClass("activeBtn");
-				$(this).addClass("activeBtn");
+			$(".xia-btn-right").click(function() {
+				btnGroup1.fadeOut().hide();
+				btnGroup2.fadeIn().show();
+
+				$(".xia-btn-left").find(".circle-middle").removeClass("activeBtn");
+				$(this).find(".circle-middle").addClass("activeBtn");
+
 			});
 
 			/*日历控件初始化*/
