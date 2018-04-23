@@ -133,12 +133,19 @@ body {
 	
 	color: #000;
 	background: #FFF;
+	/*解决bootstrap中样式的问题*/
+	border-radius: 50% !important;
 }
+/*配合下面的媒体查询*/
+.btn-group-1>.btn:last-child {
+	margin-right: 0;
+}
+
 
 .tab-content {
 	margin-top: 4px;
-	padding-top: 24px;
-	padding-bottom: 16px;
+	padding-top: 10px;
+	padding-bottom: 10px;
 	background: rgb(180,213,218);
 } 
 /*解决btn-group-*没有高度的问题*/
@@ -200,26 +207,30 @@ body {
 
 /*底部功能按钮*/
 .circle {
-	width: 70px;
-	height: 70px;
+	width: 50px;
+	height: 50px;
 	border: 4px solid #00c7a0;
+	margin-left: 2px;
 	border-radius: 50%;
+	background: #FFF;
 }
+
 .circle i {
-	margin-top: 10px;
+	margin-top: 6px;
 }
-.circle-sm {
+
+/*.circle-sm {
 	width: 40px;
 	height: 40px;
 	border: 4px solid #00c7a0;
 	border-radius: 50%;
-}
+}*/
 .circle-sm i {
 	margin-top: 5px;
 }
 
 /*针对三种屏幕进行按钮适配*/
-.tab-content .btn-group-sm {
+/*.tab-content .btn-group-sm {
 	width: 70px;
 	height: 70px;
 	font-size: 12px;
@@ -230,12 +241,12 @@ body {
 	
 }
 .tab-content .btn-group-lg {
-	width: 100px;
-	height: 100px;
+	width: 80px;
+	height: 80px;
 	margin-right: 7%;
 	border-radius: 50% !important;
 }
-
+*/
 
 
 
@@ -318,7 +329,11 @@ body {
 	}
 }
 /*普通屏幕 -md*/
-@media screen and (min-width: 769px) and (max-width: 1024px) {
+@media screen and (min-width: 768px) and (max-width: 992px) {
+	.btn-group-1>.btn {
+		margin-right: 18px;
+	}
+	
 	.tips-pane {
 		/*height: 352px;*/
 	}
@@ -333,6 +348,12 @@ body {
 }
 /*最大屏幕 pad pro --我自己的屏幕*/
 @media screen and (min-width: 1025px) and (max-width: 1366px) {
+	.btn-group-1>.btn {
+		margin-right: 102px;
+	}
+	.btn-group-1>.btn:first-child {
+		margin-left: 40px;
+	}
 	/*左侧*/
 	.tips-pane {
 		/*height: 435px;*/
