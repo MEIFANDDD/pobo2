@@ -50,6 +50,9 @@ body {
 	border: 2px solid #FFF;
 	border-left: none;
 }
+.tips-pane {
+	padding-top: 10px;
+}
 .tips-pane .tips-item label{
 	float: left;
 }
@@ -70,11 +73,14 @@ body {
 .right-box {
 	height: 100%;
 	position: relative;
-	color: #000;
+	/*color: #000;*/
 	/*border: 2px solid #FFF;*/
 	font-size: 16px;
 }
-
+.right-title {
+	height: 36px;
+	line-height: 36px;
+}
 
 /*右侧缩略图主体内容*/
 .right-content {
@@ -300,10 +306,10 @@ body {
 /*pad--sm*/
 @media screen and (max-width: 768px) {
 	.tips-pane {
-		height: 264px;
+		/*height: 264px;*/
 	}
 	.right-content {
-		height: 210px;
+		/*height: 210px;*/
 		overflow-y: auto;
 	}
 	.right-footer i {
