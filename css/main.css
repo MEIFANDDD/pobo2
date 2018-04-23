@@ -68,8 +68,10 @@ body {
 
 /*右侧缩略图*/
 .right-box {
+	height: 100%;
+	position: relative;
 	color: #000;
-	border: 2px solid #FFF;
+	/*border: 2px solid #FFF;*/
 	font-size: 16px;
 }
 
@@ -86,7 +88,9 @@ body {
 	margin-top: 5px;
 }
 .right-footer {
-	padding-bottom: 6px;
+	position: absolute;
+	bottom: 6px;
+	left: 15px;
 }
 .control-bg {
 	background: rgb(194,229,234);
@@ -278,7 +282,19 @@ body {
 	padding: 0;
 } 
 
-
+/*解决row下面的col高度不一致问题--采用flex布局做*/
+/*参考链接：https://blog.csdn.net/jewely/article/details/53006123*/
+.row-flex {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    flex-wrap: wrap;
+}
+.row-flex > [class*='col-'] {
+    display: flex;
+    flex-direction: column;
+}
 
 /*针对缩略图高度，做媒体查询*/
 /*pad--sm*/
@@ -298,10 +314,10 @@ body {
 /*普通屏幕 -md*/
 @media screen and (min-width: 769px) and (max-width: 1024px) {
 	.tips-pane {
-		height: 352px;
+		/*height: 352px;*/
 	}
 	.right-content {
-		height: 296px;
+		/*height: 296px;*/
 		overflow-y: auto;
 	}
 	.right-footer i {
@@ -313,13 +329,13 @@ body {
 @media screen and (min-width: 1025px) and (max-width: 1366px) {
 	/*左侧*/
 	.tips-pane {
-		height: 435px;
+		/*height: 435px;*/
 	}
 	/*.thumbnail>img{
 		max-height: 330px;
 	}*/
 	.right-content {
-		height: 375px;
+		/*height: 375px;*/
 		overflow-y: auto;
 	}
 	.right-footer i {
