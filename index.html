@@ -330,6 +330,7 @@
 		</div>
 		<div class="container-fluid panel-bg">
 			<div class="tab-content">
+				<!--功能-->
 				<div class="tab-pane fade in active" id="features">
 					<div class="row">
 						<div class="col-sm-5 col-md-5 col-lg-5">
@@ -375,17 +376,10 @@
 									<div class="circle-middle"><i class="fa fa-chevron-right fa-2x"></i></div>
 								</button>
 							</div>
-							<!--lg结束-->
-							<!--<div class="btn-group">
-								<div class="shift-btn">
-									<div class="half-circle left activeBtn"></div>
-									<div class="middle">F</div>
-									<div class="half-circle right"></div>
-								</div>
-							</div>-->
 						</div>
 
-						<div class="col-sm-5 col-md-5 col-lg-5">
+						<div class="col-sm-5 col-md-3 col-lg-5">
+						
 							<div class="btn-group btn-group-1 btn-list" style="display: block;">
 								<button class="btn btn-group-lg" type="button" disabled="disabled">
 									<div class="circle"><i class="fa fa-wpexplorer fa-2x"></i></div>
@@ -416,7 +410,6 @@
 								</button>
 								<!--<button class="btn btn-group-lg" type="button"></button>-->
 							</div>
-
 							<!--lg结束-->
 						</div>
 					</div>
@@ -444,11 +437,12 @@
 										<div class="circle"><i class="fa fa-address-card fa-2x"></i></div>
 											<span>B&M</span>
 									</button>
-
 								</div>
 							</div>
+							<!--这里可能有问题，检查标签闭合-->
 							<div class="col-sm-2 col-md-2 col-lg-2" style="visibility: hidden;">
 							</div>
+							
 							<div class="col-sm-5 col-md-5 col-lg-5">
 								<div class="btn-group btn-group-1 btn-list">
 									<button class="btn" type="button">
@@ -466,158 +460,168 @@
 										<span>PW</span>
 									</button>
 								</div>
+
 							</div>
 						</div>
 					</div>
 				</div>
+
+				<!--B-->
 				<div class="tab-pane fade" id="B">
 					<div class="row">
-						<div class="col-sm-3 col-md-3 col-lg-4">
-
-							<!--lg-->
-							<div class="btn-group btn-group-1 btn-list  visible-lg" style="display: block;">
-
-								<button class="btn btn-group-lg btn3-gain" type="button">
-									<div class="circle">
-										<i class="fa fa-gg fa-3x"></i>
-									</div>
+						<div class="col-sm-5 col-md-4 col-lg-4">
+							<div class="btn-group btn-group-1 btn-list" role="group">
+								<button class="btn btn-group-lg btnB-style" type="button">
+									<div class="circle"><i class="fa fa-user-circle fa-2x"></i></div>
 									<span>增益</span>
 								</button>
+								<button class="btn btn-group-lg btnB-style" type="button">
+									<div class="circle"><i class="fa fa-user-circle fa-2x"></i></div>
+									<span>深度</span>
+								</button>
+								<button class="btn btn-group-lg btnB-style" type="button">
+									<div class="circle"><i class="fa fa-user-circle fa-2x"></i></div>
+									<span>频率</span>
+								</button>
+							</div>
+							
+							
+							
+							<div class="btn-group btn-group-2 btn-list" style="display: none;">
 								<button class="btn btn-group-lg" type="button">
-									<div class="circle">
-										<i class="fa fa-gg fa-3x"></i>
-									</div>
-									深度</button>
-								<button class="btn btn-group-lg btn3-frequency" type="button">
-									<div class="circle">
-										<i class="fa fa-gg fa-3x"></i>
-									</div>
-									频率</button>
+									<div class="circle"><i class="fa fa-user-circle fa-2x"></i></div>
+									<span>图像增强</span>
+								</button>
+								<button class="btn btn-group-lg" type="button">
+									<div class="circle"><i class="fa fa-user-circle fa-2x"></i></div>
+									<span>扩展成像</span>
+								</button>
+								<button class="btn btn-group-lg" type="button">
+									<div class="circle"><i class="fa fa-user-circle fa-2x"></i></div>
+									<span>病人列表</span>
+								</button>
+							</div>
+							
+							<div class="btn-group btn-group-3 btn-list" style="display: none;">
+								<button class="btn btn-group-lg" type="button">
+									<div class="circle"><i class="fa fa-user-circle fa-2x"></i></div>
+									<span>伪彩图谱</span>
+								</button>
+								<button class="btn btn-group-lg" type="button">
+									<div class="circle"><i class="fa fa-user-circle fa-2x"></i></div>
+									<span>水平翻转</span>
+								</button>
+								<button class="btn btn-group-lg" type="button">
+									<div class="circle"><i class="fa fa-user-circle fa-2x"></i></div>
+									<span>垂直旋转</span>
+								</button>
+							</div>
+							
+						</div>
+						<!--切换按钮-->
+						<div class="col-sm-4 col-md-4 col-lg-3">
+							<div class="btn-group">
+								<button class="btn clear-bg" type="button">
+									<div class="circle-middle"><i class="fa fa-chevron-left fa-2x"></i></div>
+								</button>
+								<button class="btn clear-bg" type="button">
+									<div class="circle-middle"><i class="fa fa-circle-o fa-2x"></i></div>
+								</button>
+								<button class="btn clear-bg" type="button">
+									<div class="circle-middle"><i class="fa fa-chevron-right fa-2x"></i></div>
+								</button>
+							</div>
+						</div>
+
+			<!--这里可能会少闭合标签-->
+
+						<div class="col-sm-5 col-md-3 col-lg-5">
+							<div class="btn-group btn-group-1 btn-list" style="display: block;">
+								<button class="btn btn-group-lg">
+									<div class="circle"><i class="fa fa-user-circle fa-2x"></i></div>
+									<span>动态范围</span>
+								</button>
+								<button class="btn btn-group-lg" type="button">
+									<div class="circle"><i class="fa fa-user-circle fa-2x"></i></div>
+									<span>焦点位置</span>
+								</button>
+								<button class="btn btn-group-lg" type="button">
+									<div class="circle"><i class="fa fa-user-circle fa-2x"></i></div>
+									<span>效果</span>
+								</button>
 							</div>
 							<div class="btn-group btn-group-2 btn-list" style="display: none;">
-								<button class="btn btn-group-lg btn3-imgenhanced" type="button">
-									<div class="circle">
-										<i class="fa fa-gg fa-3x"></i>
-									</div>
-									图像增强</span></button>
 								<button class="btn btn-group-lg" type="button">
-									<div class="circle">
-										<i class="fa fa-gg fa-3x"></i>
-									</div>
-									扩展成像</button>
+									<div class="circle"><i class="fa fa-user-circle fa-2x"></i></div>
+									<span>帧相关</span>
+								</button>
 								<button class="btn btn-group-lg" type="button">
-									<div class="circle">
-										<i class="fa fa-gg fa-3x"></i>
-									</div>
-									空间复合</button>
+									<div class="circle"><i class="fa fa-user-circle fa-2x"></i></div>
+									<span>声功率</span>
+								</button>
+								<button class="btn btn-group-lg" type="button">
+									<div class="circle"><i class="fa fa-user-circle fa-2x"></i></div>
+									<span>TSI</span>
+								</button>
 							</div>
-							<div class="btn-group btn-group-3 btn-list " style="display: none;">
-								<button class="btn btn-group-lg btn3-pseudocolormap" type="button">
-									<div class="circle">
-										<i class="fa fa-gg fa-3x"></i>
-									</div>
-									伪彩图谱</span></button>
+							<div class="btn-group btn-group-3 btn-list" style="display: none;">
 								<button class="btn btn-group-lg" type="button">
-									<div class="circle">
-										<i class="fa fa-gg fa-3x"></i>
-									</div>
-									水平翻转</button>
-								<button class="btn btn-group-lg" type="button">
-									<div class="circle">
-										<i class="fa fa-gg fa-3x"></i>
-									</div>
-									垂直翻转</button>
-							</div>
-							<!--lg结束-->
-						</div>
+									<div class="circle"><i class="fa fa-user-circle fa-2x"></i></div>
+									<span>穿刺</span>
+								</button>
 
-					</div>
-
-					<!--<div class="btn-toolbar">
-						<div class="btn-group btn3-group-1" style="display: block;">
-							<button class="btn btn-group-lg btn3-gain" type="button">增益</button>
-							<button class="btn btn-group-lg" type="button">深度</button>
-							<button class="btn btn-group-lg btn3-frequency" type="button">频率</button>
-						</div>
-						<div class="btn-group btn3-group-2" style="display: none;">
-							<button class="btn btn-group-lg btn3-imgenhanced" type="button">图像增强</span></button>
-							<button class="btn btn-group-lg" type="button">扩展成像</button>
-							<button class="btn btn-group-lg" type="button">空间复合</button>
-						</div>
-						<div class="btn-group btn3-group-3" style="display: none;">
-							<button class="btn btn-group-lg btn3-pseudocolormap" type="button">伪彩图谱</span></button>
-							<button class="btn btn-group-lg" type="button">水平翻转</button>
-							<button class="btn btn-group-lg" type="button">垂直翻转</button>
-						</div>
-						
-						
-						<div class="btn-group">
-							<div class="shift-btn3">
-								<div class="half-circle left activeBtn"></div>
-								<div class="middle mid">B</div>
-								<div class="half-circle right"></div>
 							</div>
 						</div>
-						<div class="btn-group btn3-group-1" style="display: block;">
-							<button class="btn btn-group-lg" type="button">动态范围</button>
-							<button class="btn btn-group-lg" type="button">焦点位置</button>
-							<button class="btn btn-group-lg" type="button">效果</button>
-						</div>
-						<div class="btn-group btn3-group-2" style="display: none;">
-							<button class="btn btn-group-lg" type="button">帧相关</button>
-							<button class="btn btn-group-lg" type="button">声功率</button>
-							<button class="btn btn-group-lg btn3-tsi" type="button">TSI</button>
-						</div>
-						<div class="btn-group btn3-group-3" style="display: none;">
-							<button class="btn btn-group-lg btn3-puncture" type="button">穿刺</button>
-							<button class="btn btn-group-lg" type="button"></button>
-							<button class="btn btn-group-lg" type="button"></button>
-						</div>
+					
 					</div>
-				-->
 				</div>
+
+				<!--C-->
 				<div class="tab-pane fade" id="C">
-					<div class="btn-toolbar">
-						<div class="btn-group" style="display: block;">
-							<button class="btn btn-group-lg" type="button">翻转</button>
-							<button class="btn btn-group-lg" type="button">基线</button>
-							<button class="btn btn-group-lg" type="button">图谱</button>
-						</div>
-						<div class="btn-group">
-							<div class="shift-btn4">
-								<div class="middle"><span class="btn4-span">C</span></div>
+					<div class="row">
+						<div class="col-sm-5 col-md-4 col-lg-5">
+							<div class="btn-group btn-group-1 btn-list " role="group">
+								<button class="btn btn-group-lg" type="button">
+									<div class="circle"><i class="fa fa-user-circle fa-2x"></i></div>
+									<span>翻转</span>
+								</button>
+								<button class="btn btn-group-lg" type="button">
+									<div class="circle"><i class="fa fa-user-circle fa-2x"></i></div>
+									<span>基线</span>
+								</button>
+								<button class="btn btn-group-lg" type="button">
+									<div class="circle"><i class="fa fa-user-circle fa-2x"></i></div>
+									<span>图谱</span>
+								</button>
 							</div>
 						</div>
-						<div class="btn-group" style="display: block;">
-							<button class="btn btn-group-lg	" type="button"></button>
-							<button class="btn btn-group-lg" type="button"></button>
-							<button class="btn btn-group-lg" type="button"></button>
-						</div>
-					</div>
+					</div>	
 				</div>
-
+				<!--电影-->
 				<div class="tab-pane fade" id="movie">
-					<div class="btn-toolbar">
-						<div class="btn-group" style="display: block;">
-							<button class="btn btn-group-lg" type="button">保存电影</button>
-							<button class="btn btn-group-lg" type="button">自动回放</button>
-							<button class="btn btn-group-lg" type="button">伪彩图谱</button>
-						</div>
-						<div class="btn-group">
-							<div class="shift-btn4">
-								<div class="middle"><span class="btn4-span">电影</span></div>
+					<div class="row">
+						<div class="col-sm-5 col-md-4 col-lg-5">
+							<div class="btn-group btn-group-1 btn-list " role="group">
+								<button class="btn btn-group-lg" type="button">
+									<div class="circle"><i class="fa fa-user-circle fa-2x"></i></div>
+									<span>保存电影</span>
+								</button>
+								<button class="btn btn-group-lg" type="button">
+									<div class="circle"><i class="fa fa-user-circle fa-2x"></i></div>
+									<span>自动回放</span>
+								</button>
+								<button class="btn btn-group-lg" type="button">
+									<div class="circle"><i class="fa fa-user-circle fa-2x"></i></div>
+									<span>伪彩图谱</span>
+								</button>
 							</div>
 						</div>
-						<div class="btn-group" style="display: block;">
-							<button class="btn btn-group-lg	" type="button"></button>
-							<button class="btn btn-group-lg" type="button"></button>
-							<button class="btn btn-group-lg" type="button"></button>
-						</div>
-					</div>
+					</div>	
+
 				</div>
 			</div>
-
 		</div>
+
 
 		<!--按钮控制面板 结束-->
 

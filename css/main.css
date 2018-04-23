@@ -402,24 +402,36 @@ body {
 		margin-right: 20px;
 		font-size: 26px;
 	}
+	
+	/*解决B面板的问题*/
+	#B .btnB-style{
+		margin-right: 70px;
+		
+	}
+	#B .btnB-style:last-child {
+		margin-right: 0;
+	}
 }
 /*图像部分结束*/
 
 
-/*测试类*/
-.red {
-	background: red;
-}
-.green {
-	background: green;
-}
-.yellow {
-	background: yellow;
-}
-/**/
+
 /*==================夏麒麟 结束===================*/
 
 
 /*==================梅帆 开始===================*/
+
+@media screen and (min-width: 1367px)  {
+	/*控制B菜单按钮的样式*/
+	/*.btnB-style{
+		margin-right: 70px;
+		!important
+	}*/
+}
+@media screen and (min-width: 1025px) and (max-width: 1366px) {
+	
+}
+
+
 
 /*==================梅帆 结束===================*/
