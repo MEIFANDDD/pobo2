@@ -340,6 +340,15 @@ body {
 		margin-right: 4px;
 		font-size: 20px;
 	}
+	/*控制模态框下的*/
+	.height-babel,.weight-babel {
+		padding: 0;
+		text-align: left !important;
+	}
+	.height {
+		padding-left: 52px;
+		
+	}
 }
 /*最大屏幕 pad pro*/
 @media screen and (min-width: 922px) and (max-width: 1200px) {
@@ -377,6 +386,12 @@ body {
 		margin-right: 10px;
 		font-size: 26px;
 	}
+	.height-babel,.weight-babel {
+		text-align: left !important;
+	}
+	.height {
+		padding-left: 78px;
+	}
 }
 /*我自己的屏幕*/
 @media screen and (min-width: 1200px)  {
@@ -411,27 +426,15 @@ body {
 	#B .btnB-style:last-child {
 		margin-right: 0;
 	}
+	.height-babel,.weight-babel {
+		text-align: left !important;
+	}
+	.height {
+		padding-left: 78px;
+	}
 }
 /*图像部分结束*/
 
 
 
 /*==================夏麒麟 结束===================*/
-
-
-/*==================梅帆 开始===================*/
-
-@media screen and (min-width: 1367px)  {
-	/*控制B菜单按钮的样式*/
-	/*.btnB-style{
-		margin-right: 70px;
-		!important
-	}*/
-}
-@media screen and (min-width: 1025px) and (max-width: 1366px) {
-	
-}
-
-
-
-/*==================梅帆 结束===================*/
