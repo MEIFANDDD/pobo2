@@ -234,99 +234,17 @@
 				<li class="active">
 					<a href="#features" data-toggle="tab">功能</a>
 				</li>
-				<li>
-					<a href="#imageMode" data-toggle="tab">图像模式</a>
-				</li>
-				<li>
-					<a href="#B" data-toggle="tab">B</a>
-				</li>
-				<li>
-					<a href="#C" data-toggle="tab">C</a>
-				</li>
-				<li>
-					<a href="#movie" data-toggle="tab">电影</a>
-				</li>
-			</ul>
-			<ul class="nav nav-tabs mune-btn3-frequency" style="display: none;">
-				<li>
-					<a href="#">2.0&nbsp;MHz</a>
-				</li>
-				<li>
-					<a href="#">3.5&nbsp;MHz</a>
-				</li>
-				<li>
-					<a href="#">4.0&nbsp;MHz</a>
-				</li>
-				<li>
-					<a href="#">H4.0&nbsp;MHz</a>
-				</li>
-				<li>
-					<a href="#">H4.5&nbsp;MHz</a>
-				</li>
-				<li>
-					<a href="#">H5.0&nbsp;MHz</a>
-				</li>
-			</ul>
-			<ul class="nav nav-tabs mune-btn3-imgenhanced" style="display: none;">
-				<li>
-					<a href="#">关</a>
-				</li>
-				<li>
-					<a href="#">1</a>
-				</li>
-				<li>
-					<a href="#">2</a>
-				</li>
-				<li>
-					<a href="#">3</a>
-				</li>
-				<li>
-					<a href="#">4</a>
-				</li>
-			</ul>
-			<ul class="nav nav-tabs mune-btn3-tsi" style="display: none;">
-				<li>
-					<a href="#">常规</a>
-				</li>
-				<li>
-					<a href="#">肌肉</a>
-				</li>
-				<li>
-					<a href="#">脂肪</a>
-				</li>
-				<li>
-					<a href="#">液性</a>
-				</li>
-			</ul>
-			<ul class="nav nav-tabs mune-btn3-pseudocolormap" style="display: none;">
-				<li>
-					<a href="#">关</a>
-				</li>
-				<li>
-					<a href="#">1</a>
-				</li>
-				<li>
-					<a href="#">2</a>
-				</li>
-				<li>
-					<a href="#">3</a>
-				</li>
-				<li>
-					<a href="#">4</a>
-				</li>
-			</ul>
-			<div class="grade_warp User_ratings User_grade mune-btn3-slide nav-tabs" style="display: none;" id="div_fraction0">
-				<div class="ratings_bars">
-					<span id="title0">0</span>
-					<span class="bars_10">0</span>
-					<div class="scale" id="bar0">
-						<div class="slide"></div>
-						<span id="btn0"></span>
+				<div class="grade_warp User_ratings User_grade mune-btn3-slide nav-tabs" style="display: none;" id="div_fraction0">
+					<div class="ratings_bars">
+						<span id="title0">0</span>
+						<span class="bars_10">0</span>
+						<div class="scale" id="bar0">
+							<div class="slide"></div>
+							<span id="btn0"></span>
+						</div>
+						<span class="bars_10">10</span>
 					</div>
-					<span class="bars_10">10</span>
 				</div>
-			</div>
-
 		</div>
 		<div class="container-fluid panel-bg">
 			<div class="tab-content">
@@ -334,7 +252,6 @@
 				<div class="tab-pane fade in active" id="features">
 					<div class="row">
 						<div class="col-sm-5 col-md-5 col-lg-5">
-
 							<div class="btn-group btn-group-1 btn-list " role="group">
 								<button class="btn btn-group-lg" type="button" data-toggle="modal" data-target="#info">
 									<div class="circle"><i class="fa fa-user-circle fa-2x"></i></div>
@@ -355,15 +272,16 @@
 									<span class="title">注释</span>
 								</button>
 								<button class="btn btn-group-lg" type="button">
-									<div class="circle"><i class="fa fa-save fa-2x"></i></div>
-									<span>体标</span>
+									<div class="circle"><i class="fa fa-user-circle fa-2x"></i></div>
+									<span>动态范围</span>
 								</button>
 								<button class="btn btn-group-lg" type="button">
-									<div class="circle"><i class="fa fa-list fa-2x"></i></div>
-									<span>病人列表</span>
+									<div class="circle">
+										<i class="fa fa-file-text fa-2x"></i>
+									</div>
+									<span>报告</span>
 								</button>
 							</div>
-
 						</div>
 						<!--切换按钮-->
 						<div class="col-sm-2 col-md-2 col-lg-2">
@@ -377,648 +295,424 @@
 								</button>
 							</div>
 						</div>
-
 						<div class="col-sm-5 col-md-3 col-lg-5">
-						
 							<div class="btn-group btn-group-1 btn-list" style="display: block;">
 								<button class="btn btn-group-lg" type="button" disabled="disabled">
 									<div class="circle"><i class="fa fa-wpexplorer fa-2x"></i></div>
 									<span>测量</span>
 								</button>
-								<button class="btn btn-group-lg" type="button" disabled="disabled">
-									<div class="circle"><i class="fa fa-remove fa-2x"></i></div>
-									
-									<span>清除所有</span>
+								<button class="btn btn-group-lg btnB-style" type="button">
+									<div class="circle"><i class="fa fa-user-circle fa-2x"></i></div>
+									<span>增益</span>
 								</button>
 								<button class="btn btn-group-lg" type="button" disabled="disabled">
 									<div class="circle"><i class="fa  fa-search-plus fa-2x"></i></div>
 									<span>放大</span>
 								</button>
 							</div>
-							<div class="btn-group btn-group-2 btn-list" style="display: none;">
-								<button class="btn btn-group-lg" type="button">
-									<div class="circle">
-										<i class="fa fa-file-text fa-2x"></i>
-									</div>
-									<span>报告</span>
-								</button>
-								<button class="btn btn-group-lg" type="button">
-									<div class="circle">
-										<i class="fa fa-external-link-square fa-2x"></i>
-									</div>
-									<span>箭头</span>
-								</button>
-								<!--<button class="btn btn-group-lg" type="button"></button>-->
-							</div>
-							<!--lg结束-->
+								<!--lg结束-->
 						</div>
 					</div>
-				</div>
-				<!--图像模式-->
-				<div class="tab-pane fade" id="imageMode">
-					<div class="tab-pane fade in">
-						<div class="row">
-							<div class="col-sm-5 col-md-5 col-lg-5">
-								<div class="btn-group btn-group-1 btn-list">
-									<button class="btn btn-group-lg" type="button">
-										<div class="circle">
-											<i class="fa fa-address-book fa-2x"></i>
-										</div>
-										<span>B</span>
-									</button>
-									<button class="btn btn-group-lg" type="button">
-										<div class="circle">
-											<i class="fa fa-address-card fa-2x"></i>
-											
-										</div>
-										<span>2B</span>
-									</button>
-									<button class="btn btn-group-lg" type="button">
-										<div class="circle"><i class="fa fa-address-card fa-2x"></i></div>
-											<span>B&M</span>
-									</button>
-								</div>
-							</div>
-							<!--这里可能有问题，检查标签闭合-->
-							<div class="col-sm-2 col-md-2 col-lg-2" style="visibility: hidden;">
-							</div>
-							
-							<div class="col-sm-5 col-md-5 col-lg-5">
-								<div class="btn-group btn-group-1 btn-list">
-									<button class="btn" type="button">
-										<div class="circle"><i class="fa fa-safari fa-2x"></i></div>
-									<span>Color</span>
-									</button>
-									<button class="btn" type="button">
-										<div class="circle">
-											<i class="fa fa-adn fa-2x"></i>
-										</div>
-										<span>Power</span>
-									</button>
-									<button class="btn" type="button">
-										<div class="circle"><i class="fa fa-ra fa-2x"></i></div>
-										<span>PW</span>
-									</button>
-								</div>
-
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<!--B-->
-				<div class="tab-pane fade" id="B">
-					<div class="row">
-						<div class="col-sm-5 col-md-4 col-lg-4">
-							<div class="btn-group btn-group-1 btn-list" role="group">
-								<button class="btn btn-group-lg btnB-style" type="button">
-									<div class="circle"><i class="fa fa-user-circle fa-2x"></i></div>
-									<span>增益</span>
-								</button>
-								<button class="btn btn-group-lg btnB-style" type="button">
-									<div class="circle"><i class="fa fa-user-circle fa-2x"></i></div>
-									<span>深度</span>
-								</button>
-								<button class="btn btn-group-lg btnB-style" type="button">
-									<div class="circle"><i class="fa fa-user-circle fa-2x"></i></div>
-									<span>频率</span>
-								</button>
-							</div>
-							
-							
-							
-							<div class="btn-group btn-group-2 btn-list" style="display: none;">
-								<button class="btn btn-group-lg" type="button">
-									<div class="circle"><i class="fa fa-user-circle fa-2x"></i></div>
-									<span>图像增强</span>
-								</button>
-								<button class="btn btn-group-lg" type="button">
-									<div class="circle"><i class="fa fa-user-circle fa-2x"></i></div>
-									<span>扩展成像</span>
-								</button>
-								<button class="btn btn-group-lg" type="button">
-									<div class="circle"><i class="fa fa-user-circle fa-2x"></i></div>
-									<span>病人列表</span>
-								</button>
-							</div>
-							
-							<div class="btn-group btn-group-3 btn-list" style="display: none;">
-								<button class="btn btn-group-lg" type="button">
-									<div class="circle"><i class="fa fa-user-circle fa-2x"></i></div>
-									<span>伪彩图谱</span>
-								</button>
-								<button class="btn btn-group-lg" type="button">
-									<div class="circle"><i class="fa fa-user-circle fa-2x"></i></div>
-									<span>水平翻转</span>
-								</button>
-								<button class="btn btn-group-lg" type="button">
-									<div class="circle"><i class="fa fa-user-circle fa-2x"></i></div>
-									<span>垂直旋转</span>
-								</button>
-							</div>
-							
-						</div>
-						<!--切换按钮-->
-						<div class="col-sm-4 col-md-4 col-lg-3">
-							<div class="btn-group">
-								<button class="btn clear-bg" type="button">
-									<div class="circle-middle"><i class="fa fa-chevron-left fa-2x"></i></div>
-								</button>
-								<button class="btn clear-bg" type="button">
-									<div class="circle-middle"><i class="fa fa-circle-o fa-2x"></i></div>
-								</button>
-								<button class="btn clear-bg" type="button">
-									<div class="circle-middle"><i class="fa fa-chevron-right fa-2x"></i></div>
-								</button>
-							</div>
-						</div>
-
-			<!--这里可能会少闭合标签-->
-
-						<div class="col-sm-5 col-md-3 col-lg-5">
-							<div class="btn-group btn-group-1 btn-list" style="display: block;">
-								<button class="btn btn-group-lg">
-									<div class="circle"><i class="fa fa-user-circle fa-2x"></i></div>
-									<span>动态范围</span>
-								</button>
-								<button class="btn btn-group-lg" type="button">
-									<div class="circle"><i class="fa fa-user-circle fa-2x"></i></div>
-									<span>焦点位置</span>
-								</button>
-								<button class="btn btn-group-lg" type="button">
-									<div class="circle"><i class="fa fa-user-circle fa-2x"></i></div>
-									<span>效果</span>
-								</button>
-							</div>
-							<div class="btn-group btn-group-2 btn-list" style="display: none;">
-								<button class="btn btn-group-lg" type="button">
-									<div class="circle"><i class="fa fa-user-circle fa-2x"></i></div>
-									<span>帧相关</span>
-								</button>
-								<button class="btn btn-group-lg" type="button">
-									<div class="circle"><i class="fa fa-user-circle fa-2x"></i></div>
-									<span>声功率</span>
-								</button>
-								<button class="btn btn-group-lg" type="button">
-									<div class="circle"><i class="fa fa-user-circle fa-2x"></i></div>
-									<span>TSI</span>
-								</button>
-							</div>
-							<div class="btn-group btn-group-3 btn-list" style="display: none;">
-								<button class="btn btn-group-lg" type="button">
-									<div class="circle"><i class="fa fa-user-circle fa-2x"></i></div>
-									<span>穿刺</span>
-								</button>
-
-							</div>
-						</div>
-					
-					</div>
-				</div>
-
-				<!--C-->
-				<div class="tab-pane fade" id="C">
-					<div class="row">
-						<div class="col-sm-5 col-md-4 col-lg-5">
-							<div class="btn-group btn-group-1 btn-list " role="group">
-								<button class="btn btn-group-lg" type="button">
-									<div class="circle"><i class="fa fa-user-circle fa-2x"></i></div>
-									<span>翻转</span>
-								</button>
-								<button class="btn btn-group-lg" type="button">
-									<div class="circle"><i class="fa fa-user-circle fa-2x"></i></div>
-									<span>基线</span>
-								</button>
-								<button class="btn btn-group-lg" type="button">
-									<div class="circle"><i class="fa fa-user-circle fa-2x"></i></div>
-									<span>图谱</span>
-								</button>
-							</div>
-						</div>
-					</div>	
-				</div>
-				<!--电影-->
-				<div class="tab-pane fade" id="movie">
-					<div class="row">
-						<div class="col-sm-5 col-md-4 col-lg-5">
-							<div class="btn-group btn-group-1 btn-list " role="group">
-								<button class="btn btn-group-lg" type="button">
-									<div class="circle"><i class="fa fa-user-circle fa-2x"></i></div>
-									<span>保存电影</span>
-								</button>
-								<button class="btn btn-group-lg" type="button">
-									<div class="circle"><i class="fa fa-user-circle fa-2x"></i></div>
-									<span>自动回放</span>
-								</button>
-								<button class="btn btn-group-lg" type="button">
-									<div class="circle"><i class="fa fa-user-circle fa-2x"></i></div>
-									<span>伪彩图谱</span>
-								</button>
-							</div>
-						</div>
-					</div>	
-
 				</div>
 			</div>
 		</div>
 
+			<!--按钮控制面板 结束-->
 
-		<!--按钮控制面板 结束-->
+			<!--模态框-->
+			<div class="modal fade" id="info" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+				<div class="modal-dialog modal-lg" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+							<h4 class="modal-title" id="myModalLabel">病人信息</h4>
+						</div>
+						<div class="modal-body">
+							<div class="form-horizontal" role="form">
+								<div class="row">
+									<div class="col-xs-12 col-sm-6 form-group">
+										<label for="name" class="col-xs-6 col-sm-5 control-label">姓名</label>
+										<div class="col-xs-6 col-sm-6">
+											<input type="text" class="form-control" id="name" placeholder="请输入名字">
+										</div>
+									</div>
+									<div class="col-xs-12 col-sm-6 form-group">
 
-		<!--模态框-->
-		<div class="modal fade" id="info" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-			<div class="modal-dialog modal-lg" role="document">
-				<div class="modal-content">
-					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-						<h4 class="modal-title" id="myModalLabel">病人信息</h4>
-					</div>
-					<div class="modal-body">
-						<div class="form-horizontal" role="form">
-							<div class="row">
-								<div class="col-xs-12 col-sm-6 form-group">
-									<label for="name" class="col-xs-6 col-sm-5 control-label">姓名</label>
-									<div class="col-xs-6 col-sm-6">
-										<input type="text" class="form-control" id="name" placeholder="请输入名字">
+										<label for="patientID" class="col-xs-6 col-sm-5  control-label">病人ID</label>
+										<div class="col-xs-6 col-sm-6">
+											<input type="text" class="form-control" id="patientID" placeholder="请输入病人ID">
+										</div>
 									</div>
 								</div>
-								<div class="col-xs-12 col-sm-6 form-group">
+								<div class="row">
+									<div class="col-xs-12 col-sm-6 form-group">
+										<label for="sex" class="col-xs-6 col-sm-5 control-label">性别</label>
+										<div class="col-xs-6 col-sm-6">
+											<select class="form-control">
+												<option value=""></option>
+												<option value="男">男</option>
+												<option value="女">女</option>
+											</select>
+										</div>
 
-									<label for="patientID" class="col-xs-6 col-sm-5  control-label">病人ID</label>
-									<div class="col-xs-6 col-sm-6">
-										<input type="text" class="form-control" id="patientID" placeholder="请输入病人ID">
+									</div>
+									<div class="col-xs-12 col-sm-6 form-group">
+										<label for="age" class="col-xs-6 col-sm-5  control-label">年龄</label>
+										<div class="col-xs-4 col-sm-3">
+											<input type="number" class="form-control" id="age">
+										</div>
+										<div class="col-xs-2 col-sm-3">
+											<select class="form-control">
+												<option value=""></option>
+												<option value="岁">岁</option>
+												<option value="月">月</option>
+												<option value="天">天</option>
+											</select>
+										</div>
 									</div>
 								</div>
-							</div>
-							<div class="row">
-								<div class="col-xs-12 col-sm-6 form-group">
-									<label for="sex" class="col-xs-6 col-sm-5 control-label">性别</label>
-									<div class="col-xs-6 col-sm-6">
-										<select class="form-control">
-											<option value=""></option>
-											<option value="男">男</option>
-											<option value="女">女</option>
-										</select>
-									</div>
-
-								</div>
-								<div class="col-xs-12 col-sm-6 form-group">
-									<label for="age" class="col-xs-6 col-sm-5  control-label">年龄</label>
-									<div class="col-xs-4 col-sm-3">
-										<input type="number" class="form-control" id="age">
-									</div>
-									<div class="col-xs-2 col-sm-3">
-										<select class="form-control">
-											<option value=""></option>
-											<option value="岁">岁</option>
-											<option value="月">月</option>
-											<option value="天">天</option>
-										</select>
-									</div>
-								</div>
-							</div>
-							<div class="row">
-								<div class="col-xs-12 col-sm-6 form-group">
-									<label class="control-label col-xs-6 col-sm-5">生日</label>
-									<div class="col-xs-6 col-sm-6">
-										<div for="birthday" class="input-group date" id="birthdayBox">
-											<input type="text" class="form-control" id="birthday">
-											<span class="input-group-addon" style="cursor: pointer">
+								<div class="row">
+									<div class="col-xs-12 col-sm-6 form-group">
+										<label class="control-label col-xs-6 col-sm-5">生日</label>
+										<div class="col-xs-6 col-sm-6">
+											<div for="birthday" class="input-group date" id="birthdayBox">
+												<input type="text" class="form-control" id="birthday">
+												<span class="input-group-addon" style="cursor: pointer">
                         						<i class="fa fa-calendar"></i>
                     						</span>
+											</div>
 										</div>
 									</div>
 								</div>
 							</div>
-						</div>
 
-						<ul class="nav nav-pills">
-							<li role="presentation" class="active">
-								<a href="#abdomen" aria-controls="abdomen" role="tab" data-toggle="tab">腹部</a>
-							</li>
-							<li role="presentation">
-								<a href="#obstetrics" aria-controls="obstetrics" role="tab" data-toggle="tab">产科</a>
-							</li>
-							<li role="presentation">
-								<a href="#gynecology" aria-controls="gynecology" role="tab" data-toggle="tab">妇科</a>
-							</li>
-							<li role="presentation">
-								<a href="#heart" aria-controls="heart" role="tab" data-toggle="tab">心脏</a>
-							</li>
-							<li role="presentation">
-								<a href="#smallOrgan" aria-controls="smallOrgan" role="tab" data-toggle="tab">小器官</a>
-							</li>
-						</ul>
+							<ul class="nav nav-pills">
+								<li role="presentation" class="active">
+									<a href="#abdomen" aria-controls="abdomen" role="tab" data-toggle="tab">腹部</a>
+								</li>
+								<li role="presentation">
+									<a href="#obstetrics" aria-controls="obstetrics" role="tab" data-toggle="tab">产科</a>
+								</li>
+								<li role="presentation">
+									<a href="#gynecology" aria-controls="gynecology" role="tab" data-toggle="tab">妇科</a>
+								</li>
+								<li role="presentation">
+									<a href="#heart" aria-controls="heart" role="tab" data-toggle="tab">心脏</a>
+								</li>
+								<li role="presentation">
+									<a href="#smallOrgan" aria-controls="smallOrgan" role="tab" data-toggle="tab">小器官</a>
+								</li>
+							</ul>
 
-						<div class="tab-content">
-							<div role="tabpanel" class="tab-pane fade in active" id="abdomen">
-								<div class="form-horizontal" role="form">
-									<div class="row">
-										<div class="col-xs-12 col-sm-8 form-group">
-											<label for="checkDesc" class="col-xs-4 col-sm-2">检查描述</label>
-											<div class="col-xs-8 col-sm-8">
-												<input type="text" class="form-control" id="checkDesc" data-bind="value: chekDesc" />
-											</div>
-										</div>
-									</div>
-									<div class="row">
-										<div class="col-xs-12 col-sm-8 form-group">
-											<label for="chiefComplaint" class="col-xs-4 col-sm-2">主诉</label>
-											<div class="col-xs-8 col-sm-8">
-												<input type="text" class="form-control" id="chiefComplaint" data-bind="value:chiefComplaint" />
-											</div>
-										</div>
-									</div>
-									<div class="row">
-										<div class="col-xs-12 col-sm-8 form-group">
-											<label for="pastHistory" class="col-xs-4 col-sm-2">既往史</label>
-											<div class="col-xs-8 col-sm-8">
-												<input type="text" class="form-control" id="pastHistory" data-bind="value: pastHistory" />
-											</div>
-										</div>
-									</div>
-
-									<div class="row">
-										<div class="col-xs-12 col-sm-8 form-group">
-											<label for="height" class="col-xs-4 col-sm-2">身高</label>
-											<div class="col-xs-6 col-sm-6">
-												<input type="text" class="form-control" id="height" />
-											</div>
-											<div class="col-xs-2 col-sm-2">
-												cm
-											</div>
-										</div>
-									</div>
-									<div class="row">
-										<div class="col-xs-12 col-sm-8 form-group">
-											<label for="weight" class="col-xs-4 col-sm-2">体重</label>
-											<div class="col-xs-6 col-sm-6">
-												<input type="text" class="form-control" id="weight" />
-											</div>
-											<div class="col-xs-2 col-sm-2">
-												kg
-											</div>
-										</div>
-									</div>
-
-								</div>
-							</div>
-							<div role="tabpanel" class="tab-pane fade" id="obstetrics">
-								<div class="form-horizontal" role="form">
-									<div class="row">
-										<div class="col-xs-12 col-sm-8 form-group">
-											<label for="checkDesc" class="col-xs-4 col-sm-3">检查描述</label>
-											<div class="col-xs-8 col-sm-8">
-												<input type="text" class="form-control" id="checkDesc" data-bind="value: chekDesc" />
-											</div>
-										</div>
-									</div>
-									<div class="row">
-										<div class="col-xs-12 col-sm-8 form-group">
-											<label for="chiefComplaint" class="col-xs-4 col-sm-3">主诉</label>
-											<div class="col-xs-8 col-sm-8">
-												<input type="text" class="form-control" id="chiefComplaint" data-bind="value: chiefComplaint" />
-											</div>
-										</div>
-									</div>
-									<div class="row">
-										<div class="col-xs-12 col-sm-8 form-group">
-											<label for="pastHistory" class="col-xs-4 col-sm-3">既往史</label>
-											<div class="col-xs-8 col-sm-8">
-												<input type="text" class="form-control" id="pastHistory" data-bind="value:pastHistory" />
-											</div>
-										</div>
-									</div>
-
-									<div class="row">
-										<div class="col-xs-12 col-sm-8 form-group">
-											<div class="col-xs-2 col-sm-3">
-												<select name="" id="" class="form-control">
-													<option value="LMP">LMP</option>
-													<option value="IVF">IVF</option>
-													<option value="PRV">PRV</option>
-													<option value="BBT">BBT</option>
-													<option value="EDD">EDD</option>
-												</select>
-											</div>
-											<div class="col-xs-6 col-sm-4">
-
-												<div class="input-group date">
-													<input type="text" class="form-control" id="LMPDate" />
-													<span class="input-group-addon" style="cursor: pointer">
-											<i class="fa fa-calendar"></i>
-										</span>
-												</div>
-
-											</div>
-
-										</div>
-									</div>
-									<div class="row">
-										<div class="col-xs-12 col-sm-8 form-group">
-											<label for="" class="col-xs-4 col-sm-3">孕龄(LMP)</label>
-											<div class="col-xs-6 col-sm-4">
-												<input type="text" class="form-control" id="" />
-											</div>
-
-										</div>
-									</div>
-									<div class="row">
-										<div class="col-xs-12 col-sm-8 form-group">
-											<label for="" class="col-xs-4 col-sm-3">预产期(LMP)</label>
-											<div class="col-xs-6 col-sm-4">
-												<input type="text" class="form-control" id="" />
-											</div>
-
-										</div>
-									</div>
-								</div>
-
-							</div>
-							<div role="tabpanel" class="tab-pane fade" id="gynecology">
-								<div class="form-horizontal" role="form">
-									<div class="row">
-										<div class="col-xs-12 col-sm-8 form-group">
-											<label for="checkDesc" class="col-xs-4 col-sm-2">检查描述</label>
-											<div class="col-xs-8 col-sm-8">
-												<input type="text" class="form-control" id="checkDesc" data-bind="value: chekDesc" />
-											</div>
-										</div>
-									</div>
-
-									<div class="row">
-										<div class="col-xs-12 col-sm-8 form-group">
-											<label for="chiefComplaint" class="col-xs-4 col-sm-2">主诉</label>
-											<div class="col-xs-8 col-sm-8">
-												<input type="text" class="form-control" id="chiefComplaint" data-bind="value: chiefComplaint" />
-											</div>
-										</div>
-									</div>
-									<div class="row">
-										<div class="col-xs-12 col-sm-8 form-group">
-											<label for="pastHistory" class="col-xs-4 col-sm-2">既往史</label>
-											<div class="col-xs-8 col-sm-8">
-												<input type="text" class="form-control" id="pastHistory" data-bind="value: pastHistory" />
-											</div>
-										</div>
-									</div>
-									<div class="row">
-										<div class="col-xs-12 col-sm-8 form-group">
-											<label for="lastMenstruation" class="col-xs-4 col-sm-2">末次月经</label>
-											<div class="col-xs-8 col-sm-6">
-												<div class="input-group date">
-													<input type="text" class="form-control" id="lastMenstruation" />
-													<span class="input-group-addon" style="cursor: pointer">
-														<i class="fa fa-calendar"></i>
-													</span>
+							<div class="tab-content">
+								<div role="tabpanel" class="tab-pane fade in active" id="abdomen">
+									<div class="form-horizontal" role="form">
+										<div class="row">
+											<div class="col-xs-12 col-sm-8 form-group">
+												<label for="checkDesc" class="col-xs-4 col-sm-2">检查描述</label>
+												<div class="col-xs-8 col-sm-8">
+													<input type="text" class="form-control" id="checkDesc" data-bind="value: chekDesc" />
 												</div>
 											</div>
 										</div>
-									</div>
-								</div>
-							</div>
-
-							<div role="tabpanel" class="tab-pane fade" id="heart">
-								<div class="form-horizontal" role="form">
-									<div class="row">
-										<div class="col-xs-12 col-sm-8 form-group">
-											<label for="checkDesc" class="col-xs-4 col-sm-2">检查描述</label>
-											<div class="col-xs-8 col-sm-8">
-												<input type="text" class="form-control" id="checkDesc" data-bind="value:chekDesc" />
+										<div class="row">
+											<div class="col-xs-12 col-sm-8 form-group">
+												<label for="chiefComplaint" class="col-xs-4 col-sm-2">主诉</label>
+												<div class="col-xs-8 col-sm-8">
+													<input type="text" class="form-control" id="chiefComplaint" data-bind="value:chiefComplaint" />
+												</div>
 											</div>
 										</div>
-									</div>
-
-									<div class="row">
-										<div class="col-xs-12 col-sm-8 form-group">
-											<label for="chiefComplaint" class="col-xs-4 col-sm-2">主诉</label>
-											<div class="col-xs-8 col-sm-8">
-												<input type="text" class="form-control" id="chiefComplaint" data-bind="value: chiefComplaint" />
+										<div class="row">
+											<div class="col-xs-12 col-sm-8 form-group">
+												<label for="pastHistory" class="col-xs-4 col-sm-2">既往史</label>
+												<div class="col-xs-8 col-sm-8">
+													<input type="text" class="form-control" id="pastHistory" data-bind="value: pastHistory" />
+												</div>
 											</div>
 										</div>
-									</div>
-									<div class="row">
-										<div class="col-xs-12 col-sm-8 form-group">
-											<label for="pastHistory" class="col-xs-4 col-sm-2">既往史</label>
-											<div class="col-xs-8 col-sm-8">
-												<input type="text" class="form-control" id="pastHistory" data-bind="value: pastHistory" />
-											</div>
-										</div>
-									</div>
 
-									<div class="row">
-										<div class="col-xs-12 col-sm-8">
-
-											<div class="col-xs-12 col-sm-6 form-group">
-												<label class="col-xs-4 col-sm-3">身高</label>
-												<div class="col-xs-3 col-sm-5  col-sm-offset-1">
+										<div class="row">
+											<div class="col-xs-12 col-sm-8 form-group">
+												<label for="height" class="col-xs-4 col-sm-2">身高</label>
+												<div class="col-xs-6 col-sm-6">
 													<input type="text" class="form-control" id="height" />
 												</div>
-												<div class="col-xs-3 col-sm-1">cm</div>
+												<div class="col-xs-2 col-sm-2">
+													cm
+												</div>
 											</div>
-											<div class="col-xs-12 col-sm-6 form-group">
-												<label class="col-xs-4 col-sm-3">体重</label>
-												<div class="col-xs-3 col-sm-5">
+										</div>
+										<div class="row">
+											<div class="col-xs-12 col-sm-8 form-group">
+												<label for="weight" class="col-xs-4 col-sm-2">体重</label>
+												<div class="col-xs-6 col-sm-6">
 													<input type="text" class="form-control" id="weight" />
 												</div>
-												<div class="col-xs-3 col-sm-1">kg</div>
+												<div class="col-xs-2 col-sm-2">
+													kg
+												</div>
 											</div>
-
 										</div>
+
 									</div>
-
-									<div class="row">
-										<div class="col-xs-12 col-sm-8">
-
-											<div class="col-xs-12 col-sm-6 form-group">
-												<label class="col-xs-4 col-sm-3">心率</label>
-												<div class="col-xs-3 col-sm-5  col-sm-offset-1">
-													<input type="text" class="form-control" id="" />
+								</div>
+								<div role="tabpanel" class="tab-pane fade" id="obstetrics">
+									<div class="form-horizontal" role="form">
+										<div class="row">
+											<div class="col-xs-12 col-sm-8 form-group">
+												<label for="checkDesc" class="col-xs-4 col-sm-3">检查描述</label>
+												<div class="col-xs-8 col-sm-8">
+													<input type="text" class="form-control" id="checkDesc" data-bind="value: chekDesc" />
 												</div>
-												<div class="col-xs-3 col-sm-1">Bpm</div>
 											</div>
-											<div class="col-xs-12 col-sm-6 form-group">
-												<label class="col-xs-4 col-sm-3">右房心压</label>
-												<div class="col-xs-3 col-sm-5">
-													<input type="text" class="form-control" id="" />
-												</div>
-												<div class="col-xs-3 col-sm-1">mmHg</div>
-											</div>
-
 										</div>
-									</div>
-									<div class="row">
-										<div class="col-xs-12 col-sm-8">
+										<div class="row">
+											<div class="col-xs-12 col-sm-8 form-group">
+												<label for="chiefComplaint" class="col-xs-4 col-sm-3">主诉</label>
+												<div class="col-xs-8 col-sm-8">
+													<input type="text" class="form-control" id="chiefComplaint" data-bind="value: chiefComplaint" />
+												</div>
+											</div>
+										</div>
+										<div class="row">
+											<div class="col-xs-12 col-sm-8 form-group">
+												<label for="pastHistory" class="col-xs-4 col-sm-3">既往史</label>
+												<div class="col-xs-8 col-sm-8">
+													<input type="text" class="form-control" id="pastHistory" data-bind="value:pastHistory" />
+												</div>
+											</div>
+										</div>
 
-											<div class="col-xs-12 col-sm-6 form-group">
-												<label class="col-xs-4 col-sm-3">血压</label>
-												<div class="col-xs-3 col-sm-4  col-sm-offset-1">
+										<div class="row">
+											<div class="col-xs-12 col-sm-8 form-group">
+												<div class="col-xs-2 col-sm-3">
+													<select name="" id="" class="form-control">
+														<option value="LMP">LMP</option>
+														<option value="IVF">IVF</option>
+														<option value="PRV">PRV</option>
+														<option value="BBT">BBT</option>
+														<option value="EDD">EDD</option>
+													</select>
+												</div>
+												<div class="col-xs-6 col-sm-4">
+
+													<div class="input-group date">
+														<input type="text" class="form-control" id="LMPDate" />
+														<span class="input-group-addon" style="cursor: pointer">
+											<i class="fa fa-calendar"></i>
+										</span>
+													</div>
+
+												</div>
+
+											</div>
+										</div>
+										<div class="row">
+											<div class="col-xs-12 col-sm-8 form-group">
+												<label for="" class="col-xs-4 col-sm-3">孕龄(LMP)</label>
+												<div class="col-xs-6 col-sm-4">
 													<input type="text" class="form-control" id="" />
 												</div>
-												<div class="col-xs-3 col-sm-4">
+
+											</div>
+										</div>
+										<div class="row">
+											<div class="col-xs-12 col-sm-8 form-group">
+												<label for="" class="col-xs-4 col-sm-3">预产期(LMP)</label>
+												<div class="col-xs-6 col-sm-4">
 													<input type="text" class="form-control" id="" />
 												</div>
+
 											</div>
 										</div>
 									</div>
 
 								</div>
-							</div>
-
-							<div role="tabpanel" class="tab-pane fade" id="smallOrgan">
-								<div class="form-horizontal" role="form">
-									<div class="row">
-										<div class="col-xs-12 col-sm-8 form-group">
-											<label for="checkDesc" class="col-xs-4 col-sm-3">检查描述</label>
-											<div class="col-xs-8 col-sm-8">
-												<input type="text" class="form-control" id="checkDesc" data-bind="value: chekDesc" />
+								<div role="tabpanel" class="tab-pane fade" id="gynecology">
+									<div class="form-horizontal" role="form">
+										<div class="row">
+											<div class="col-xs-12 col-sm-8 form-group">
+												<label for="checkDesc" class="col-xs-4 col-sm-2">检查描述</label>
+												<div class="col-xs-8 col-sm-8">
+													<input type="text" class="form-control" id="checkDesc" data-bind="value: chekDesc" />
+												</div>
 											</div>
 										</div>
-									</div>
 
-									<div class="row">
-										<div class="col-xs-12 col-sm-8 form-group">
-											<label for="chiefComplaint" class="col-xs-4 col-sm-3">主诉</label>
-											<div class="col-xs-8 col-sm-8">
-												<input type="text" class="form-control" id="chiefComplaint" data-bind="value: chiefComplaint" />
+										<div class="row">
+											<div class="col-xs-12 col-sm-8 form-group">
+												<label for="chiefComplaint" class="col-xs-4 col-sm-2">主诉</label>
+												<div class="col-xs-8 col-sm-8">
+													<input type="text" class="form-control" id="chiefComplaint" data-bind="value: chiefComplaint" />
+												</div>
 											</div>
 										</div>
-									</div>
-									<div class="row">
-										<div class="col-xs-12 col-sm-8 form-group">
-											<label for="pastHistory" class="col-xs-4 col-sm-3">既往史</label>
-											<div class="col-xs-8 col-sm-8">
-												<input type="text" class="form-control" id="pastHistory" data-bind="value: pastHistory" />
+										<div class="row">
+											<div class="col-xs-12 col-sm-8 form-group">
+												<label for="pastHistory" class="col-xs-4 col-sm-2">既往史</label>
+												<div class="col-xs-8 col-sm-8">
+													<input type="text" class="form-control" id="pastHistory" data-bind="value: pastHistory" />
+												</div>
+											</div>
+										</div>
+										<div class="row">
+											<div class="col-xs-12 col-sm-8 form-group">
+												<label for="lastMenstruation" class="col-xs-4 col-sm-2">末次月经</label>
+												<div class="col-xs-8 col-sm-6">
+													<div class="input-group date">
+														<input type="text" class="form-control" id="lastMenstruation" />
+														<span class="input-group-addon" style="cursor: pointer">
+														<i class="fa fa-calendar"></i>
+													</span>
+													</div>
+												</div>
 											</div>
 										</div>
 									</div>
 								</div>
+
+								<div role="tabpanel" class="tab-pane fade" id="heart">
+									<div class="form-horizontal" role="form">
+										<div class="row">
+											<div class="col-xs-12 col-sm-8 form-group">
+												<label for="checkDesc" class="col-xs-4 col-sm-2">检查描述</label>
+												<div class="col-xs-8 col-sm-8">
+													<input type="text" class="form-control" id="checkDesc" data-bind="value:chekDesc" />
+												</div>
+											</div>
+										</div>
+
+										<div class="row">
+											<div class="col-xs-12 col-sm-8 form-group">
+												<label for="chiefComplaint" class="col-xs-4 col-sm-2">主诉</label>
+												<div class="col-xs-8 col-sm-8">
+													<input type="text" class="form-control" id="chiefComplaint" data-bind="value: chiefComplaint" />
+												</div>
+											</div>
+										</div>
+										<div class="row">
+											<div class="col-xs-12 col-sm-8 form-group">
+												<label for="pastHistory" class="col-xs-4 col-sm-2">既往史</label>
+												<div class="col-xs-8 col-sm-8">
+													<input type="text" class="form-control" id="pastHistory" data-bind="value: pastHistory" />
+												</div>
+											</div>
+										</div>
+
+										<div class="row">
+											<div class="col-xs-12 col-sm-8">
+
+												<div class="col-xs-12 col-sm-6 form-group">
+													<label class="col-xs-4 col-sm-3">身高</label>
+													<div class="col-xs-3 col-sm-5  col-sm-offset-1">
+														<input type="text" class="form-control" id="height" />
+													</div>
+													<div class="col-xs-3 col-sm-1">cm</div>
+												</div>
+												<div class="col-xs-12 col-sm-6 form-group">
+													<label class="col-xs-4 col-sm-3">体重</label>
+													<div class="col-xs-3 col-sm-5">
+														<input type="text" class="form-control" id="weight" />
+													</div>
+													<div class="col-xs-3 col-sm-1">kg</div>
+												</div>
+
+											</div>
+										</div>
+
+										<div class="row">
+											<div class="col-xs-12 col-sm-8">
+
+												<div class="col-xs-12 col-sm-6 form-group">
+													<label class="col-xs-4 col-sm-3">心率</label>
+													<div class="col-xs-3 col-sm-5  col-sm-offset-1">
+														<input type="text" class="form-control" id="" />
+													</div>
+													<div class="col-xs-3 col-sm-1">Bpm</div>
+												</div>
+												<div class="col-xs-12 col-sm-6 form-group">
+													<label class="col-xs-4 col-sm-3">右房心压</label>
+													<div class="col-xs-3 col-sm-5">
+														<input type="text" class="form-control" id="" />
+													</div>
+													<div class="col-xs-3 col-sm-1">mmHg</div>
+												</div>
+
+											</div>
+										</div>
+										<div class="row">
+											<div class="col-xs-12 col-sm-8">
+
+												<div class="col-xs-12 col-sm-6 form-group">
+													<label class="col-xs-4 col-sm-3">血压</label>
+													<div class="col-xs-3 col-sm-4  col-sm-offset-1">
+														<input type="text" class="form-control" id="" />
+													</div>
+													<div class="col-xs-3 col-sm-4">
+														<input type="text" class="form-control" id="" />
+													</div>
+												</div>
+											</div>
+										</div>
+
+									</div>
+								</div>
+
+								<div role="tabpanel" class="tab-pane fade" id="smallOrgan">
+									<div class="form-horizontal" role="form">
+										<div class="row">
+											<div class="col-xs-12 col-sm-8 form-group">
+												<label for="checkDesc" class="col-xs-4 col-sm-3">检查描述</label>
+												<div class="col-xs-8 col-sm-8">
+													<input type="text" class="form-control" id="checkDesc" data-bind="value: chekDesc" />
+												</div>
+											</div>
+										</div>
+
+										<div class="row">
+											<div class="col-xs-12 col-sm-8 form-group">
+												<label for="chiefComplaint" class="col-xs-4 col-sm-3">主诉</label>
+												<div class="col-xs-8 col-sm-8">
+													<input type="text" class="form-control" id="chiefComplaint" data-bind="value: chiefComplaint" />
+												</div>
+											</div>
+										</div>
+										<div class="row">
+											<div class="col-xs-12 col-sm-8 form-group">
+												<label for="pastHistory" class="col-xs-4 col-sm-3">既往史</label>
+												<div class="col-xs-8 col-sm-8">
+													<input type="text" class="form-control" id="pastHistory" data-bind="value: pastHistory" />
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<div class="row">
+									<div class="col-xs-12 col-sm-12 text-center">
+										<button class="btn btn-default btn-lg" type="">新病人</button>
+										<button class="btn btn-default btn-lg" type="">新检查</button>
+										<button class="btn btn-default btn-lg " disabled="disabled" type="" data-bind="click:$root.cancel">取消检查</button>
+										<a href="javascript:void(0)" class="btn btn-default btn-lg">病人列表</a>
+									</div>
+								</div>
 							</div>
 
+						</div>
+						<div class="modal-footer">
 							<div class="row">
 								<div class="col-xs-12 col-sm-12 text-center">
-									<button class="btn btn-default btn-lg" type="">新病人</button>
-									<button class="btn btn-default btn-lg" type="">新检查</button>
-									<button class="btn btn-default btn-lg " disabled="disabled" type="" data-bind="click:$root.cancel">取消检查</button>
-									<a href="javascript:void(0)" class="btn btn-default btn-lg">病人列表</a>
+									<button type="button" class="btn btn-primary" data-bind="click:$root.sure">确定</button>
+									<button type="button" class="btn btn-default" data-dismiss="modal" data-bind="click:$root.close">取消</button>
 								</div>
 							</div>
-						</div>
 
-					</div>
-					<div class="modal-footer">
-						<div class="row">
-							<div class="col-xs-12 col-sm-12 text-center">
-								<button type="button" class="btn btn-primary" data-bind="click:$root.sure">确定</button>
-								<button type="button" class="btn btn-default" data-dismiss="modal" data-bind="click:$root.close">取消</button>
-							</div>
 						</div>
-
 					</div>
 				</div>
 			</div>
-		</div>
-		<!--模态框结束-->
+			<!--模态框结束-->
 	</body>
 	<script src="js/jquery.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
