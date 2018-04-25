@@ -129,11 +129,10 @@ body {
 
 /*重写按钮大小*/
 /*无论什么屏幕，按钮的公共样式*/
-.btn {
+.tab-pane .btn-list .btn {
 	
 	color: #000;
 	background: #FFF;
-	/*解决bootstrap中样式的问题*/
 	border-radius: 50% !important;
 }
 /*配合下面的媒体查询*/
@@ -295,6 +294,22 @@ body {
 	border: none;
 	padding: 0;
 } 
+
+/*播放按钮，截屏按钮*/
+.play-all-video,.screenshot-all-video {
+    border-radius: 4px;
+}
+.play-all-video {
+	background-color: #337ab7;
+    border-color: #2e6da4
+    color: #FFF;
+  
+}
+.screenshot-all-video {
+    color: #333;
+    background-color: #fff;
+    border-color: #ccc;
+}
 
 /*解决row下面的col高度不一致问题--采用flex布局做*/
 /*参考链接：https://blog.csdn.net/jewely/article/details/53006123*/
