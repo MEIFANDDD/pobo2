@@ -10,7 +10,7 @@
 		<link rel="stylesheet" href="css/bootstrap.min.css" />
 		<link rel="stylesheet" href="css/font-awesome.min.css" />
 		<link rel="stylesheet" href="css/jquery.datetimepicker.css" />
-
+		<link rel="stylesheet" href="css/video-js.min.css" />
 		<link rel="stylesheet" href="css/main.css" />
 		<!-- 滑动条样式 -->
 		<link type="text/css" href="css/slide-style.css" rel="stylesheet" />
@@ -81,7 +81,13 @@
 								<h5 class="text-center">左侧视图</h5>
 							</div>
 							<div class="thumbnail">
-								<img src="images/timg.jpg" alt="" class="img-responsive" />
+								
+								
+								<video width="486" height="400">
+									<source src="./video/oceans.mp4" type="video/mp4"></source>
+									当前浏览器不支持 video直接播放，点击这里下载视频： <a href="./video/oceans.mp4">下载视频</a>
+								</video>
+								<!--<img src="images/timg.jpg" alt="" class="img-responsive" />-->
 							</div>
 
 						</div>
@@ -90,7 +96,12 @@
 								<h5 class="text-center">右侧视图</h5>
 							</div>
 							<div class="thumbnail">
-								<img src="images/timg.jpg" alt="" class="img-responsive" />
+								<video width="486" height="400">
+									<source src="./video/oceans.mp4" type="video/mp4"></source>
+									
+									当前浏览器不支持 video直接播放，点击这里下载视频： <a href="./video/oceans.mp4">下载视频</a>
+								</video>
+								<!--<img src="images/timg.jpg" alt="" class="img-responsive" />-->
 							</div>
 						</div>
 					</div>
@@ -227,7 +238,6 @@
 		</div>
 		<!--按钮控制面板-->
 
-		<!--<div class="navbar fix-menu" role="navigation">-->
 
 		<div class="container-fluid control-bg">
 			<ul class="nav nav-tabs  mune-nav" style="display: block;">
@@ -335,14 +345,14 @@
 								<div class="col-xs-12 col-sm-6 form-group">
 									<label for="name" class="col-xs-6 col-sm-5 control-label">姓名</label>
 									<div class="col-xs-6 col-sm-6">
-										<input type="text" class="form-control" id="name" placeholder="请输入名字">
+										<input type="text" class="form-control" id="name" disabled>
 									</div>
 								</div>
 								<div class="col-xs-12 col-sm-6 form-group">
 
 									<label for="patientID" class="col-xs-6 col-sm-5  control-label">病人ID</label>
 									<div class="col-xs-6 col-sm-6">
-										<input type="text" class="form-control" id="patientID" placeholder="请输入病人ID">
+										<input type="text" class="form-control" id="patientID" disabled>
 									</div>
 								</div>
 							</div>
@@ -350,26 +360,28 @@
 								<div class="col-xs-12 col-sm-6 form-group">
 									<label for="sex" class="col-xs-6 col-sm-5 control-label">性别</label>
 									<div class="col-xs-6 col-sm-6">
-										<select class="form-control">
+										<input type="text" class="form-control" disabled/>
+										<!--<select class="form-control">
 											<option value=""></option>
 											<option value="男">男</option>
 											<option value="女">女</option>
-										</select>
+										</select>-->
 									</div>
 
 								</div>
 								<div class="col-xs-12 col-sm-6 form-group">
 									<label for="age" class="col-xs-6 col-sm-5  control-label">年龄</label>
 									<div class="col-xs-4 col-sm-3">
-										<input type="number" class="form-control" id="age">
+										<input type="number" class="form-control" id="age" disabled>
 									</div>
 									<div class="col-xs-2 col-sm-3">
-										<select class="form-control">
+										<input type="text" class="form-control" disabled value="岁"/>
+										<!--<select class="form-control">
 											<option value=""></option>
 											<option value="岁">岁</option>
 											<option value="月">月</option>
 											<option value="天">天</option>
-										</select>
+										</select>-->
 									</div>
 								</div>
 							</div>
@@ -377,12 +389,13 @@
 								<div class="col-xs-12 col-sm-6 form-group">
 									<label class="control-label col-xs-6 col-sm-5">生日</label>
 									<div class="col-xs-6 col-sm-6">
-										<div for="birthday" class="input-group date" id="birthdayBox">
+										<input type="text" class="form-control" disabled/>
+										<!--<div for="birthday" class="input-group date" id="birthdayBox">
 											<input type="text" class="form-control" id="birthday">
 											<span class="input-group-addon" style="cursor: pointer">
                         						<i class="fa fa-calendar"></i>
                     						</span>
-										</div>
+										</div>-->
 									</div>
 								</div>
 							</div>
@@ -462,6 +475,8 @@
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/jquery.datetimepicker.full.min.js"></script>
 	<script src="js/knockout-3.4.2.js"></script>
+	<!--视频插件-->
+	<script src="js/video.js"></script>
 	<!-- 滑动条js -->
 	<script src="js/slide.js"></script>
 	<script src="./layer/layer.js"></script>
@@ -506,60 +521,15 @@
 
 			});
 
-			/*日历控件初始化*/
-			// 点击图标按钮---显示日期面板
-			$("#birthdayBox>span.input-group-addon").click(function() {
-				$('#birthday').datetimepicker("show");
-			});
-			$('#birthday').datetimepicker({
-				format: "Y-m-d",
-				hours24: 'true',
-				step: 10, //设置时分之间的间隔
-				initTime: true,
-				autoclose: true, // 选中日期即关闭面板
-				minView: "month",
-				timepicker: false
-			});
-
-			// LMP
-			$("#LMPDate").next("span").click(function() {
-				$('#LMPDate').datetimepicker("show");
-			});
-			$("#LMPDate").datetimepicker({
-				format: "Y-m-d",
-				hours24: 'true',
-				step: 10, //设置时分之间的间隔
-				initTime: true,
-				autoclose: true, // 选中日期即关闭面板
-				minView: "month",
-				timepicker: false
-			});
-
-			// 末次月经
-			$("#lastMenstruation").next("span").click(function() {
-				$('#lastMenstruation').datetimepicker("show");
-			});
-			$("#lastMenstruation").datetimepicker({
-				format: "Y-m-d",
-				hours24: 'true',
-				step: 10, //设置时分之间的间隔
-				initTime: true,
-				autoclose: true, // 选中日期即关闭面板
-				minView: "month",
-				timepicker: false
-			});
-
 			// 监控数据变化
 			let vm = new ViewModel();
 			ko.applyBindings(vm);
-
-			// 控制图像区域高度
 
 		});
 
 		function ViewModel() {
 			const self = this;
-
+			
 			self.checkTitlte = ko.observable("C5-2Fs"); // 顶部标题
 			self.checkPosition = ko.observable("腹部"); // 检查位置
 			self.chekDesc = ko.observable(); // 检查描述
@@ -581,7 +551,7 @@
 				//拿到图片盒子
 				html2canvas($(".image-online")[0]).then((canvas) => {
 					//Canvas2Image.saveAsPNG(canvas,500,500);
-
+					//console.log(canvas);
 					var image = new Image();
 					image.src = canvas.toDataURL("image/png", 1.0);
 					// 将这个图片数据传出去
@@ -590,7 +560,8 @@
 						currentTime: getCurrentTime()
 					}
 					imgArr.push(obj);
-
+					console.log(imgArr[0].imgSource.src);
+					//document.write(imgArr[0].imgSource.src)
 					/*
 					 参考链接地址： https://www.cnblogs.com/GoTing/p/6206466.html
 					 使用canvas2image.js 会出现图片没有后缀名的情况
