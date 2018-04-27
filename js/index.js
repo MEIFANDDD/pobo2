@@ -388,7 +388,7 @@ function handleVideoOperate(__this,className) {
 
 }
 // 到时候 ajax请求，改变地址就可以
-var src = "http://zixuncr.cn/pobo/video/v1.mp4";
+var src = "http://zixuncr.cn/video/v1.mp4";
 var player1 = videojs("videoTag-left",options);
 
 player1.ready(function() {
