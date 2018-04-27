@@ -21,6 +21,24 @@
 				line-height: 3em;
 				border-radius: 50%;	
 			}*/
+			/*隐藏中间播放按钮*/
+			.vjs-big-play-button {
+				visibility: hidden;
+			}
+			/*隐藏音量按钮--我们的项目应该没有声音*/
+			.vjs-control-bar .vjs-volume-panel {
+				display: none;
+			}
+			/*隐藏视频左下角的播放按钮*/
+			.vjs-control-bar .vjs-play-control {
+				display: none;
+			}
+			.video-js .vjs-time-control {
+    			display: block;
+			}
+			.vjs-has-started .vjs-user-inactive .vjs-playing .vjs-control-bar {
+			    opacity: 1 !important;
+			}
 		</style>
 	</head>
 
@@ -91,8 +109,8 @@
 							<div class="thumbnail">
 								<video id="videoTag-left" class="video-js vjs-default-skin vjs-big-play-centered" data-setup='{}' width="486px" height="400"> 
 									 
-									<source src="//vjs.zencdn.net/v/oceans.mp4" type="video/mp4"></source>
 								
+									<!--<source id="videoSourceid" type="video/mp4"></source>-->
 									<p class="vjs-no-js">
 										To view this video please enable JavaScript, and consider upgrading to a web browser that
 										<a href="http://videojs.com/html5-video-support/" target="_blank">
@@ -110,7 +128,7 @@
 							<div class="thumbnail">
 								<video id="videoTag-right" class="video-js vjs-default-skin vjs-big-play-centered" data-setup='{}' width="486px" height="400"> 
 									 
-									<source src="//vjs.zencdn.net/v/oceans.mp4" type="video/mp4"></source>
+									<!--<source src="./video/oceans.mp4" type="video/mp4"></source>-->
 								
 									<p class="vjs-no-js">
 										To view this video please enable JavaScript, and consider upgrading to a web browser that
@@ -126,8 +144,8 @@
 	
 					<div class="row">
 						<div class="col-sm-12 col-md-12 col-lg-12 text-center">
-							<button type="button" class="btn btn-primary btn-lg play-all-video" id="playBtn">播放</button>
-							<button type="button" class="btn btn-default btn-lg screenshot-all-video" id="screenshotBtn">截屏</button>
+							<button type="button" class="btn btn-primary btn-lg play-all-video playBtn" >播放</button>
+							<button type="button" class="btn btn-default btn-lg screenshot-all-video screenshotBtn">截屏</button>
 						</div>
 					</div>
 	

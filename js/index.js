@@ -322,7 +322,7 @@ var options = {
 	controls: true,
 
 	
-	poster: "https://ss2.baidu.com/-vo3dSag_xI4khGko9WTAnF6hhy/image/h%3D300/sign=404a1782eb1190ef1efb94dffe1a9df7/3ac79f3df8dcd1007fde3f4e7e8b4710b9122f1b.jpg",
+	//poster: "https://ss2.baidu.com/-vo3dSag_xI4khGko9WTAnF6hhy/image/h%3D300/sign=404a1782eb1190ef1efb94dffe1a9df7/3ac79f3df8dcd1007fde3f4e7e8b4710b9122f1b.jpg",
 	preload: "auto",
 	
 	playbackRates:[0.5,1,1.5,1.75,2], // 控制播放速度，视频中会出一个控件
@@ -332,66 +332,130 @@ var options = {
 // 同时控制视频的速率和当前播发到哪一个时间点
 var videoOpt = {
 	currentTime: '',
-	speed: 1,
-	volume: ''
+	volume: '',// 音量
+	playbackRate: 1// 视频播放速度
+	
 }
 
 
-// 截屏操作
-$("#screenshotBtn").click(()=> {
+/**
+ * @param {videolEle} video元素 -类名  
+ * 
+ * 
+ * */
+function handleVideoOperate(__this,className) {
+
+	var _this = __this;
+
+	var _player = videojs(className);
 	
-});
-
-var player = videojs('videoTag-left',options,function() {
-	videojs.log('vidoe已经准备好了');
-	var _this = this;
-
-	/*视频播放的逻辑*/
-	// 播放操作
-	$("#playBtn").click(function() {
-	
-		var btnText = $(this).text();
-		
-		var player2 = videojs("videoTag-right");
-		
-		if(btnText === "播放") {
-			$(this).text("暂停");
-			_this.play();
-			player2.play();
-			$("#screenshotBtn").attr('disabled',true);
-		} else if(btnText === "暂停") {
-			$(this).text("播放");
-			_this.pause();
-			player2.pause();
-			$("#screenshotBtn").attr('disabled',false);	
-		}
-	});
-
 
 	// 获取当前播放的时间和速率
-	
 	// 当改变播放时间，拖动播放轴时--同时快进和后退
 	_this.on("seeked",function() {
 		videoOpt.currentTime = _this.currentTime();
-		player2.currentTime(videoOpt.currentTime);
+		_player.currentTime(videoOpt.currentTime);
 	})
 	_this.on("waiting",function() {
-		alert("视频正在缓冲");
+		//alert("视频正在缓冲");
 	});
 	// 同步声音，这里可能没有必要，影像应该是没有声音的
 	_this.on("volumechange",function() {
+		
+		
 		videoOpt.volume = _this.volume();
 		//console.log(videoOpt.volume,typeof videoOpt.volume)
-		player2.volume(videoOpt.volume);
+		_player.volume(videoOpt.volume);
 	});
-	
-	
-	// 做事件监听
-	this.on('ended',()=> {
+	// 同步控制播放速度
+	_this.on("ratechange",function() {
+		videoOpt.playbackRate = _this.playbackRate();
+		_player.playbackRate(videoOpt.playbackRate);
 		
+	});
+	// 做事件监听
+	_this.on('ended',function() {
+		alert("结束");
+	
+		// 提示医生，切换病人信息吧，ajax
 		videojs.log('视频结束');
 	})
-});
-var player2 = videojs("videoTag-right",options,function() {
+	//
+	_this.on("error",function(error) {
+		_this.
+		console.log(error);
+	})
+
+}
+// 到时候 ajax请求，改变地址就可以
+var src = "http://zixuncr.cn/pobo/video/v1.mp4";
+var player1 = videojs("videoTag-left",options);
+
+player1.ready(function() {
 	
-})
+	this.src(src);
+	handleVideoOperate(this,"videoTag-right");
+
+
+});
+
+
+
+var player2 = videojs("videoTag-right",options);
+player2.ready(function() {
+	this.src(src);
+	handleVideoOperate(this,"videoTag-left");
+});
+
+
+var lastTime = Date.now();
+
+// 播放操作
+$(".playBtn").click(function() {
+	var currentTime = Date.now();
+	var protectTime = 100; // 设置保护性延时，单位毫秒
+	var btnText = $(this).text();
+	
+	/**
+	 *  防止用户点击过快，出现报错 1秒钟点40-50下
+	 * 报错信息 Uncaught (in promise) DOMException: The play() request was interrupted by a call to pause(). https://goo.gl/LdLk22
+	 * @param {https://www.cnblogs.com/zzsdream/p/6125223.html}
+	 * */
+	if((currentTime-lastTime) < protectTime) {
+		return; // 直接退出
+	}
+	
+	if(btnText === "播放") {
+		$(this).text("暂停");
+		player1.play();
+		player2.play();
+		$(".screenshotBtn").attr('disabled',true);
+		
+		
+	} else if(btnText === "暂停") {
+		$(this).text("播放");
+		player1.pause();
+		player2.pause();
+		$(".screenshotBtn").attr('disabled',false);	
+		//captureImage($("#videoTag-left_html5_api").get(0));
+	}
+});
+
+// 截屏
+function captureImage(video) {
+	
+	var canvas = document.createElement("canvas");
+	canvas.width = 400;
+	canvas.height = 400;
+	var ctx = canvas.getContext("2d");
+	ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+
+	
+    var image = document.createElement('img');
+    image.setAttribute("crossOrigin",'Anonymous')
+    
+    image.src =  canvas.toDataURL("image/png", 1.0);
+    $(".right-content").append(image);
+	
+}
+
