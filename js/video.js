@@ -1662,7 +1662,7 @@ function hasData(el) {
   if (!id) {
     return false;
   }
-
+	// 返回true/false
   return !!Object.getOwnPropertyNames(elData[id]).length;
 }
 
@@ -1905,12 +1905,13 @@ var _supportsPassive = false;
 })();
 
 /**
- * Touch events Chrome expects to be passive
+ * Touch events Chrome expects to be passive--touch触摸事件
  */
 var passiveEvents = ['touchstart', 'touchmove'];
 
 /**
- * Add an event listener to element
+ * on这里的方法应该是没有暴露给外部的，就是再下面通过原形链的方式加了一个on方法，在这里掉用on方法
+ * Add an event listener to element--添加事件监听
  * It stores the handler function in a separate cache object
  * and adds a generic handler to the element's event,
  * along with a unique id (guid) to the element.
@@ -1918,13 +1919,14 @@ var passiveEvents = ['touchstart', 'touchmove'];
  * @param {Element|Object} elem
  *        Element or object to bind listeners to
  *
- * @param {string|string[]} type
+ * @param {string|string[]} type--要绑定的事件类型--字符串或者字符串数组
  *        Type of event to bind to.
  *
  * @param {EventTarget~EventListener} fn
  *        Event listener.
  */
 function on(elem, type, fn) {
+	// ES6的，原生判断是数组
   if (Array.isArray(type)) {
     return _handleMultipleEvents(on, elem, type, fn);
   }
@@ -1993,6 +1995,7 @@ function on(elem, type, fn) {
 }
 
 /**
+ * 在原形链中也加了一个off方法，其实调用的就是这里的方法 
  * Removes event listeners from an element
  *
  * @param {Element|Object} elem
@@ -5040,7 +5043,7 @@ function bufferedPercent(buffered, duration) {
  */
 var FullscreenApi = {};
 
-// browser API methods
+// browser API methods--方法列表
 var apiMap = [['requestFullscreen', 'exitFullscreen', 'fullscreenElement', 'fullscreenEnabled', 'fullscreenchange', 'fullscreenerror'],
 // WebKit
 ['webkitRequestFullscreen', 'webkitExitFullscreen', 'webkitFullscreenElement', 'webkitFullscreenEnabled', 'webkitfullscreenchange', 'webkitfullscreenerror'],

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.box,.box2 {
+				width: 100px;
+				height: 100px;
+				border: 1px solid green;
+			}
+			.inner,.inner2 {
+				width: 50px;
+				height: 50px;
+				border: 1px solid red;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			1 有问题的
+			<div class="inner">2</div>
+		</div>
+		<div class=" box2">
+			1
+			<div class="inner2">2</div>
+		</div>
+		<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+		<script type="text/javascript">
+			$(function() {
+				// 情况一：
+				$(".box").click(function() {
+					console.log(1);
+					$(".inner").click(function(e) {
+						e.stopPropagation(); // 阻止事件冒泡
+					  	
+						console.log(2,"inner");
+					})
+				})
+				
+				// 解决办法：
+				$(".box2").click(function() {
+					console.log("盒子2");
+					$(".inner2").unbind("click").click(function() {
+						console.log("盒子inner2","inner2");
+					})
+				})
+			})
+		</script>
+	</body>
+</html>
