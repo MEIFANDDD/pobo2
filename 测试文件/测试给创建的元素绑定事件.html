@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.box {
+				width: 200px;
+				height: 200px;
+				border: 1px solid red;
+			}
+			.item {
+				height: 10px;
+				background: red;
+				border-bottom: 2px solid green;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box"></div>
+		
+		
+	</body>
+	<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+	<script>
+		$(function() {
+			var str = createTemp();
+			
+			
+			/*$(".box .item").click(function() {
+				alert(1);
+			});*/
+			$(".box").on("click",".item",function() {
+				alert(1);
+			});
+			$(".box").append(str);
+		});
+		
+		function createTemp() {
+			var str = `
+			<ol>
+				<li class="item"></li>
+			</ol>
+			
+			`;
+			return str;
+		}
+	</script>
+</html>

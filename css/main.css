@@ -86,6 +86,10 @@ body {
 .right-content {
 	width: 100%;
 }
+.right-content .img-content-left,.right-content .img-content-right {
+	width: 100%;
+	margin: 0 auto;
+}
 /*缩略图功能面板*/
 .right-content img {
 	width: 100%;
@@ -295,6 +299,7 @@ body {
 	padding: 0;
 } 
 
+
 /*播放按钮，截屏按钮*/
 .play-all-video,.screenshot-all-video {
     border-radius: 4px;
@@ -303,12 +308,16 @@ body {
 	background-color: #337ab7;
     border-color: #2e6da4
     color: #FFF;
-  
+  	margin-left: -40px;
 }
 .screenshot-all-video {
     color: #333;
     background-color: #fff;
     border-color: #ccc;
+}
+/*保证无论在什么屏幕下，都是100%的图像呈现*/
+.videoTag-left-dimensions,.videoTag-right-dimensions {
+	width: 100%;
 }
 
 /*解决row下面的col高度不一致问题--采用flex布局做*/

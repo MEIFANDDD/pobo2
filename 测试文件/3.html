@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		
+		<style type="text/css">
+			body {
+				margin-top: 0px;
+				margin-left: 0px;
+			}
+			
+			div {
+				margin: 0;
+				padding: 0;
+			}
+			
+			.innerbg {
+				background: #ff0000;
+				filter: Alpha(Opacity=40, FinishOpacity=90, Style=0, StartX=0, StartY=0, FinishX=100, FinishY=100);
+				width: 100%;
+				height: 100%;
+			}
+			
+			div.imgmasker {
+				position: absolute;
+				z-index: 1;
+				cursor: pointer;
+				border: 1px solid red;
+				background: #000000;
+				opacity: 1;
+			}
+			.imgbox {
+				width: 500px;
+				height: 500px;
+				
+			}
+			.imgbox img {
+				width: 100%;
+				height: 100%;
+				background-size: cover;
+			}
+		</style>
+		<!--<script language="javascript" type="text/javascript" src="arkjs/lang.js"></script>-->
+		<!--<script language="javascript" type="text/javascript" src="DrawRectangle.js"></script>-->
+		<!--方案不好用-->
+	</head>
+	
+	<body>
+		<div class="imgbox">
+			<img src="imageLabel/build.jpg" name="bigimg" border="0" id="bigimg" style="margin-left:0px;margin-top:0px;border:1px solid #ccc;" />
+		</div>
+		
+		<button id="btn">下载</button>
+		
+			
+		
+	</body>
+		<script src="../js/jquery.min.js"></script>
+		<script src="../js/html2canvas.min.js"></script>
+		<script>
+			DrawRectangle = function(id, onMouseUp, className) {
+
+				document.oncontextmenu = function() {
+					return true;
+				};
+
+				this.IMG = document.getElementById(id);
+
+				var masker = document.createElement("div");
+				masker.id = "mask_" + id;
+				var position = this.getAbsolutePosition(this.IMG);
+
+				masker.style.width = position.width + "px";
+				masker.style.height = position.height + "px";
+				masker.style.left = position.left;
+				masker.style.top = position.top;
+				masker.style["background-image"] = "url(" + this.IMG.src + ")";
+				masker.className = "imgmasker";
+
+				this.masker = masker;
+				this.IMG.parentNode.appendChild(masker);
+				this.IMG.parentNode.removeChild(this.IMG);
+
+				this.isDraw = false;
+				this.isMouseUp = true;
+				this.index = 0;
+				this.currentDrawRectangle = null;
+				this.className = className;
+
+				this.RectangleDivs = [];
+
+				this.debug = false;
+
+				this._onMouseUp = onMouseUp;
+
+				this.bindListener();
+			};
+
+			DrawRectangle.prototype = {
+				bindListener: function() {
+
+					this.masker.onmousemove = this.dragSize.bind(this);
+					this.masker.onmouseup = this.onMouseUp.bind(this);
+					this.masker.onmouseout = this.onMouseOut.bind(this);
+					this.masker.onmouseover = this.onMouseOver.bind(this);
+					this.masker.onmousedown = this.drawLayer.bind(this);
+					this.masker.onmouseup = this.onMouseUp.bind(this);
+				},
+				drawLayer: function() {
+					//this.IMG.setCapture(true);    
+					this.isDraw = true;
+					this.ismouseup = false;
+					this.index++;
+
+					var pos = this.getSourcePos();
+
+					var x = event.offsetX;
+					var y = event.offsetY;
+
+					var top = y + pos.top - 2;
+					var left = x + pos.left - 2;
+
+					var d = document.createElement("div");
+					// document.body.appendChild(d);  
+					this.masker.appendChild(d);
+					d.style.border = "1px solid #ff0000";
+					d.style.width = 0;
+					d.style.height = 0;
+					d.style.overflow = "hidden";
+					d.style.position = "absolute";
+					d.style.left = left + "px";
+					d.style.top = top + "px";
+					d.style.opacity = 0.5;
+
+					d.style["z-index"] = 2;
+					if(this.className) {
+						d.className = this.className;
+					}
+					d.id = "draw" + this.index;
+					if(this.debug) {
+						d.innerHTML = "<div class='innerbg'>x:" + x + ",y:" + y + "..</div>";
+					}
+
+					this.currentDrawRectangle = d;
+
+					this.RectangleDivs[this.index] = {
+						left: left,
+						top: top,
+						el: d
+					};
+				},
+				getSourcePos: function() {
+					return this.getAbsolutePosition(this.masker);
+				},
+				dragSize: function() {
+					if(this.isDraw) {
+						if(!(event.srcElement.tagName.toLowerCase() == "div" && event.srcElement.className == "imgmasker"))
+							return;
+
+						var pos = this.getSourcePos();
+						var img_x = pos.top;
+						var img_y = pos.left;
+						var x = event.offsetX;
+						var y = event.offsetY;
+						var drawW = (x + img_x) - this.RectangleDivs[this.index].left;
+						var drawH = (y + img_y) - this.RectangleDivs[this.index].top;
+						this.currentDrawRectangle.style.width = (drawW > 0 ? drawW : -drawW) + "px";
+						this.currentDrawRectangle.style.height = (drawH > 0 ? drawH : -drawH) + "px";
+						if(drawW < 0) {
+							this.currentDrawRectangle.style.left = (x + img_x) + "px";
+						}
+						if(drawH < 0) {
+							this.currentDrawRectangle.style.top = (y + img_y) + "px";
+						}
+
+						if(this.debug) {
+							this.currentDrawRectangle.innerHTML = "<div class='innerbg'>x:" + x + ",y:" + y +
+								". img_x:" +
+								img_x +
+								",img_y:" +
+								img_y +
+								". drawW:" +
+								drawW +
+								",drawH:" +
+								drawH +
+								".  Dleft[i]:" +
+								this.RectangleDivs[this.index].left +
+								",Dtop[i]:" +
+								this.RectangleDivs[this.index].top +
+								"src:" +
+								event.srcElement.tagName +
+								",this.isDraw: " + this.isDraw +
+								",this.isMouseUp: " + this.isMouseUp +
+								".</div>";
+						}
+
+					} else {
+						return false;
+					}
+				},
+
+				stopDraw: function() {
+					this.isDraw = false;
+				},
+
+				onMouseOut: function() {
+					if(!this.isMouseUp) {
+						this.isDraw = false;
+					}
+				},
+
+				onMouseUp: function() {
+					this.isDraw = false;
+					this.isMouseUp = true;
+					//this.IMG.releaseCapture();    
+
+					if(this._onMouseUp) {
+						this._onMouseUp.call(this, this.currentDrawRectangle);
+					}
+				},
+
+				onMouseOver: function() {
+					if(!this.isMouseUp) {
+						this.isDraw = true;
+					}
+				},
+
+				getAbsolutePosition: function(obj) {
+					var t = obj.offsetTop;
+					var l = obj.offsetLeft;
+					var w = obj.offsetWidth;
+					var h = obj.offsetHeight;
+
+					while(obj = obj.offsetParent) {
+						t += obj.offsetTop;
+						l += obj.offsetLeft;
+					}
+
+					return {
+						top: t,
+						left: l,
+						width: w,
+						height: h
+					};
+				}
+			};
+		</script>
+
+		
+		
+		
+		<script>
+			$(function() {
+				new DrawRectangle('bigimg', function(div) {
+				//alert(div.outerHTML);    
+				});
+				
+				/*$("#btn").on("click",function() {
+					html2canvas(document.getElementById("bigimg")).then((canvas) => {
+						console.log(canvas);
+						var image1 = new Image();
+						image1.src = canvas.toDataURL("image/png", 1.0);
+						
+						var img1 = convertCanvasToImage(canvas);
+						$("body").append(img1);
+					});
+				});*/
+				
+			});
+		</script>
+</html>

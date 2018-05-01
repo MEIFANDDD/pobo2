@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="styles/jquery.imageLabel.min.css">
+	</head>
+
+	<body>
+
+	</body>
+
+	<script src="scripts/jquery.js"></script>
+	<script src="scripts/jquery.imageLabel.min.js"></script>
+	<script type="text/javascript">
+		$(function() {
+			var $imageLabel = imageLabel({
+				img: './build.jpg', //要修改的图片地址
+				editPop: true, //调用默认弹窗
+				data: [{
+					"x": 0.22570911285455642,
+					"y": 0.37189688291389805,
+					"ex": 0.45141822570911283,
+					"ey": 0.6551396000355341,
+					"name": "小米电视"
+				}, {
+					"x": 0.5932407966203983,
+					"y": 0.36803448222587576,
+					"ex": 0.8117079058539529,
+					"ey": 0.6512771993475117,
+					"name": "小米电视"
+				}],
+				close: function(d) { //关闭按钮事件 return false 阻止默认关闭
+					console.log(d); //选区数据
+					// 返回false 就不关闭
+					return true;
+				},
+				confirm: function(d) { //确定按钮事件 return false 阻止默认关闭
+					console.log(d); //选区数据
+					return true;
+				}
+			})
+
+		})
+	</script>
+
+</html>

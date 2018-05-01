@@ -9,18 +9,19 @@
 		<title></title>
 		<link rel="stylesheet" href="css/bootstrap.min.css" />
 		<link rel="stylesheet" href="css/font-awesome.min.css" />
+		<!--日期插件-->
 		<link rel="stylesheet" href="css/jquery.datetimepicker.css" />
+		<!--视频播放插件-->
 		<link rel="stylesheet" href="css/video-js.min.css" />
+		<!--图片标记插件-->
+		<link rel="stylesheet" href="css/jquery.imageLabel.min.css" />
+		<link rel="stylesheet" href="css/edit.css" />
+		<!--图片标记插件 end-->
 		<link rel="stylesheet" href="css/main.css" />
 		<!-- 滑动条样式 -->
 		<link type="text/css" href="css/slide-style.css" rel="stylesheet" />
 		<style type="text/css">
-			/*调整播放按钮--调整成圆形*/ 
-			/*.video-js .vjs-big-play-button {
-				height: 3em;
-				line-height: 3em;
-				border-radius: 50%;	
-			}*/
+			
 			/*隐藏中间播放按钮*/
 			.vjs-big-play-button {
 				visibility: hidden;
@@ -39,6 +40,29 @@
 			.vjs-has-started .vjs-user-inactive .vjs-playing .vjs-control-bar {
 			    opacity: 1 !important;
 			}
+			
+			/*弹出层的*/
+			#imgform {
+				margin: 0 auto;
+				width: 500px;
+			}
+			/*隐藏输入框*/
+			.imageLabel-input-box {
+				display: none;
+			}
+			/*保证截图时，编辑的区域是可见额*/
+			.imageLabel-imgdrop {
+				background: transparent;
+			}
+			/*保证截图的标记边框是红色的*/
+			.imageLabel-imgdrop.imageLabel-drop-edit {
+				border: 2px solid red;
+			}
+			/*第二次的标记框*/ 
+			.imageLabel-imgdrop {
+				border: 2px solid red;
+			}
+			
 		</style>
 	</head>
 
@@ -107,7 +131,7 @@
 								<h5 class="text-center">左侧视图</h5>
 							</div>
 							<div class="thumbnail">
-								<video id="videoTag-left" class="video-js vjs-default-skin vjs-big-play-centered" data-setup='{}' width="486px" height="400"> 
+								<video id="videoTag-left" class="video-js vjs-default-skin vjs-big-play-centered" data-setup='{}' height="400"> 
 									 
 								
 									<!--<source id="videoSourceid" type="video/mp4"></source>-->
@@ -119,14 +143,16 @@
 									</p>
 								</video>
 							</div>
-
+							<div class="text-center">
+								<div class="btn btn-lg btn-default capture-left-image" disabled>截图</div>
+							</div>
 						</div>
 						<div class="col-sm-6 sol-md-5 col-lg-6 clear-padding-left padding-10">
 							<div class="caption">
 								<h5 class="text-center">右侧视图</h5>
 							</div>
 							<div class="thumbnail">
-								<video id="videoTag-right" class="video-js vjs-default-skin vjs-big-play-centered" data-setup='{}' width="486px" height="400"> 
+								<video id="videoTag-right" class="video-js vjs-default-skin vjs-big-play-centered" data-setup='{}'  height="400"> 
 									 
 									<!--<source src="./video/oceans.mp4" type="video/mp4"></source>-->
 								
@@ -139,15 +165,21 @@
 								</video>
 								<!--<img src="images/timg.jpg" alt="" class="img-responsive" />-->
 							</div>
+							<div class="pull-left">
+								<button type="button" class="btn btn-primary btn-lg play-all-video playBtn" >播放</button>
+							</div>
+							<div class="text-center">
+								<div class="btn btn-lg btn-default capture-right-image" disabled>截图</div>
+							</div>
 						</div>
 					</div>
 	
-					<div class="row">
+					<!--<div class="row">
 						<div class="col-sm-12 col-md-12 col-lg-12 text-center">
 							<button type="button" class="btn btn-primary btn-lg play-all-video playBtn" >播放</button>
 							<button type="button" class="btn btn-default btn-lg screenshot-all-video screenshotBtn">截屏</button>
 						</div>
-					</div>
+					</div>-->
 	
 					<!--实时图像结束-->
 				</div>
@@ -160,7 +192,8 @@
 							缩略图
 						</div>
 						<div class="right-content">
-
+							<div class="img-content-left"></div>
+							<div class="img-content-right"></div>
 						</div>
 						<div class="right-footer">
 							<div class="text-center">
@@ -527,6 +560,7 @@
 	<script src="js/canvas2image.js"></script>
 	<!--将元素变成canvas-->
 	<script src="js/html2canvas.min.js"></script>
+	<script src="js/jquery.imageLabel.min.js"></script>
 	<script src="js/index.js"></script>
 
 </html>

@@ -33,7 +33,82 @@ $(function() {
 		$(this).find(".circle-middle").addClass("activeBtn");
 
 	});
+	
+	// 获取所有的图片列表
 
+	$(".right-content").on("click","img",function(event) {
+		console.log("当前点击的图片序号", $(this).index());
+		// 获取图片序号
+		deleteIndex = $(this).index();
+		$(this).siblings().css({
+			"border": "none"
+		});
+		// 保证每次点击，都只有一个高亮
+		$(this).parent().siblings().children("img").css({
+			"border": "none"
+		});
+		$(this).css({
+			"border": "2px solid #FF0000"
+		});
+	});
+	// 利用事件委托
+	$(".right-content").on("dblclick","img",function() {
+		// 放大功能
+		
+		var parentNode = $(this).parent();
+		
+		// 获取父元素的类名，通过类名 append图片
+		var parentClassName = parentNode[0].className;
+		console.log(parentClassName);
+		
+		var $imageLabel = imageLabel({
+			//img: "https://i1.mifile.cn/f/i/18/mitv4A/40/build.jpg",
+			img: $(this)[0].src,
+			only: !1,
+			editPop: false,// 禁用弹窗
+			close: function(t) {
+				return true;
+				//return t.length && alert(JSON.stringify(t)), !0
+			},
+			clickArea: function() {},
+			edit: function(t) {},
+			startArea: function() {},
+			confirm: function(t) {
+				html2canvas($(".imageLabel-jisuan").get(0),{
+					backgroundColor: "#FFF",// 设置截图后的背景
+					allowTaint: true // 关键点
+				}).then((canvas) => {
+					
+					// 确保图层不会遮住 播放按钮--本来是准备直接移除的，但是移除后，你进一步的编辑，就会报元素找不到
+					$(".imageLabel-jisuan").css("display","none");
+					//console.log(canvas);
+					// 将canvas转变成图片，append到图片列表中
+					var img = convertCanvasToImage(canvas);
+					
+					parentNode.append(img);
+					var position = parentClassName.indexOf("left")>0?"left":"right";
+					var obj = {
+						imgSource: img,
+						captureTime: getCurrentTime(),
+						isLeftOrRight: position
+					}
+					imgArr.push(obj);
+					// 做一次ajax请求，将图片都push到服务器
+					
+				});
+				return true;
+				//return t.length && alert(JSON.stringify(t)), !0
+			}
+		});
+		
+		
+
+	});
+
+	
+	
+	
+	
 	// 监控数据变化
 	let vm = new ViewModel();
 	ko.applyBindings(vm);
@@ -52,7 +127,8 @@ function ViewModel() {
 	self.height = ko.observable(); // 身高
 	self.weight = ko.observable(); // 体重
 	self.isEnable = ko.observable(false);
-
+	
+	// 该方法应该再没有用到---别删除
 	self.save = function() {
 		if($(".leftImage").attr("src") == "") {
 			console.log("左边没有图像");
@@ -213,115 +289,21 @@ function getCurrentTime() {
 	return downloadTime;
 }
 
-/*************梅帆********************/
-var s1; //定义五个定时器
-var s2;
-var s3;
-var s4;
-var s5;
-
-$(function() {
-	//切换按钮
-	let btn3Group1 = $(".btn3-group-1");
-	let btn3Group2 = $(".btn3-group-2");
-	let btn3Group3 = $(".btn3-group-3");
-
-	$(".shift-btn3 .left").click(function() {
-		btn3Group1.show();
-		btn3Group2.hide();
-		btn3Group3.hide();
-		$(".shift-btn3 .right").removeClass("activeBtn");
-		$(".shift-btn3 .mid").removeClass("activeBtn");
-		$(this).addClass("activeBtn");
-	});
-	$(".shift-btn3 .mid").click(function() {
-		btn3Group1.hide();
-		btn3Group2.show();
-		btn3Group3.hide();
-		$(".shift-btn3 .right").removeClass("activeBtn");
-		$(".shift-btn3 .left").removeClass("activeBtn");
-		$(this).addClass("activeBtn");
-	});
-	$(".shift-btn3 .right").click(function() {
-		btn3Group1.hide();
-		btn3Group2.hide();
-		btn3Group3.show();
-		$(".shift-btn3 .left").removeClass("activeBtn");
-		$(".shift-btn3 .mid").removeClass("activeBtn");
-		$(this).addClass("activeBtn");
-	});
-
-	//点击事件
-
-	$(".btn3-frequency").click(function() {
-		clearTime();
-		$(".mune-nav").css("display", "none");
-		$(".mune-btn3-tsi").css("display", "none");
-		$(".mune-btn3-pseudocolormap").css("display", "none");
-		$(".mune-btn3-slide").css("display", "none");
-		$(".mune-btn3-frequency").css("display", "block");
-		s1 = setTimeout(function() { //点击后5s切换回菜单栏
-			$(".mune-btn3-frequency").css("display", "none"), $(".mune-nav").css("display", "block");
-		}, 5000);
-	})
-	$(".btn3-tsi").click(function() {
-		clearTime();
-		$(".mune-nav").css("display", "none");
-		$(".mune-btn3-pseudocolormap").css("display", "none");
-		$(".mune-btn3-frequency").css("display", "none");
-		$(".mune-btn3-slide").css("display", "none");
-		$(".mune-btn3-tsi").css("display", "block");
-		s2 = setTimeout(function() { //点击后5s切换回菜单栏
-			$(".mune-btn3-tsi").css("display", "none"), $(".mune-nav").css("display", "block");
-		}, 5000);
-	})
-	$(".btn3-pseudocolormap").click(function() {
-		clearTime();
-		$(".mune-nav").css("display", "none");
-		$(".mune-btn3-frequency").css("display", "none");
-		$(".mune-btn3-tsi").css("display", "none");
-		$(".mune-btn3-slide").css("display", "none");
-		$(".mune-btn3-pseudocolormap").css("display", "block");
-		s3 = setTimeout(function() { //点击后5s切换回菜单栏
-			$(".mune-btn3-pseudocolormap").css("display", "none"), $(".mune-nav").css("display", "block");
-		}, 5000);
-	})
-	$(".btn3-gain").click(function() {
-		clearTime();
-		$(".mune-nav").css("display", "none");
-		$(".mune-btn3-frequency").css("display", "none");
-		$(".mune-btn3-tsi").css("display", "none");
-		$(".mune-btn3-pseudocolormap").css("display", "none");
-		$(".mune-btn3-slide").css("display", "block");
-		$(".right-box1").css("display", "none");
-		$(".right-box2").css("display", "block");
-		s4 = setTimeout(function() { //点击后5s切换回菜单栏
-			$(".mune-btn3-slide").css("display", "none"), $(".mune-nav").css("display", "block"), $(".right-box2").css("display", "none"), $(".right-box1").css("display", "block");
-		}, 5000);
-		s5 = setTimeout(function() {
-			$(".right-box2").css("display", "none"), $(".right.box1").css("display", "none");
-		}, 5000);
-	})
-	$(".btn3-puncture").click(function() {
-		alert("注意穿刺！");
-	})
-});
-
-// 清除定时器
-function clearTime() {
-	clearTimeout(s1);
-	clearTimeout(s2);
-	clearTimeout(s3);
-	clearTimeout(s4);
-}
-
-/****************************************/
 var options = {
 	language: 'zh-CN', // 默认是 en
 	
 	controls: true,
-
-	
+	muted: true, // 静音
+	control: {
+		/* CurrentTimeDisplay: false,
+		 TimeDivider: false,
+		 DurationDisplay: false*/
+		/*captionsButton: false,
+		playbackRateMenuButton: false*/
+	},
+	ControlBar: {
+		
+	},
 	//poster: "https://ss2.baidu.com/-vo3dSag_xI4khGko9WTAnF6hhy/image/h%3D300/sign=404a1782eb1190ef1efb94dffe1a9df7/3ac79f3df8dcd1007fde3f4e7e8b4710b9122f1b.jpg",
 	preload: "auto",
 	
@@ -333,7 +315,8 @@ var options = {
 var videoOpt = {
 	currentTime: '',
 	volume: '',// 音量
-	playbackRate: 1// 视频播放速度
+	playbackRate: 1,// 视频播放速度
+	aspectRatio: "4:3"
 	
 }
 
@@ -375,6 +358,8 @@ function handleVideoOperate(__this,className) {
 	});
 	// 做事件监听
 	_this.on('ended',function() {
+		$(".playBtn").attr("disabled",true);
+		
 		alert("结束");
 	
 		// 提示医生，切换病人信息吧，ajax
@@ -382,13 +367,14 @@ function handleVideoOperate(__this,className) {
 	})
 	//
 	_this.on("error",function(error) {
-		_this.
+		//_this.
 		console.log(error);
 	})
 
 }
 // 到时候 ajax请求，改变地址就可以
-var src = "http://zixuncr.cn/video/v1.mp4";
+/*var src = "http://zixuncr.cn/video/v1.mp4";*/
+var src = "./video/oceans.mp4";
 var player1 = videojs("videoTag-left",options);
 
 player1.ready(function() {
@@ -398,8 +384,14 @@ player1.ready(function() {
 
 
 });
+// 卸载播放事件
+$(".video-js").on("click",function(event) {
+	
+	/*player1.removeEvent("play", function() {
+		console.log(1);
+	});*/
 
-
+})
 
 var player2 = videojs("videoTag-right",options);
 player2.ready(function() {
@@ -416,6 +408,9 @@ $(".playBtn").click(function() {
 	var protectTime = 100; // 设置保护性延时，单位毫秒
 	var btnText = $(this).text();
 	
+	// 左右截屏按钮
+	var btnCaptureLeft = $(".capture-left-image");
+	var	btnCaptureRight = $(".capture-right-image");
 	/**
 	 *  防止用户点击过快，出现报错 1秒钟点40-50下
 	 * 报错信息 Uncaught (in promise) DOMException: The play() request was interrupted by a call to pause(). https://goo.gl/LdLk22
@@ -429,33 +424,68 @@ $(".playBtn").click(function() {
 		$(this).text("暂停");
 		player1.play();
 		player2.play();
-		$(".screenshotBtn").attr('disabled',true);
-		
+
+		btnCaptureLeft.attr('disabled',true);
+		btnCaptureRight.attr('disabled',true);
 		
 	} else if(btnText === "暂停") {
 		$(this).text("播放");
 		player1.pause();
 		player2.pause();
-		$(".screenshotBtn").attr('disabled',false);	
-		//captureImage($("#videoTag-left_html5_api").get(0));
+		
+		btnCaptureLeft.attr('disabled',false);
+		btnCaptureRight.attr('disabled',false);
 	}
 });
 
+$(".capture-left-image").bind("click",function() {
+	if($(this).attr("disabled")) {
+		return;
+	}
+	captureImage($("#videoTag-left_html5_api").get(0),"left");
+});
+		
+$(".capture-right-image").bind("click",function() {
+	if($(this).attr("disabled")) {
+		return;
+	}
+	captureImage($("#videoTag-right_html5_api").get(0),"right");
+});
+
+
 // 截屏
-function captureImage(video) {
+function captureImage(video,position) {
 	
 	var canvas = document.createElement("canvas");
-	canvas.width = 400;
-	canvas.height = 400;
+	canvas.width = 800;
+	canvas.height = 800;
 	var ctx = canvas.getContext("2d");
-	ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+	ctx.drawImage(video, 0, 0,800,800);
 
 	
     var image = document.createElement('img');
     image.setAttribute("crossOrigin",'Anonymous')
     
     image.src =  canvas.toDataURL("image/png", 1.0);
-    $(".right-content").append(image);
+    /**
+     * imgSource 图片源
+     * captureTime 截图时间
+     * isLeftOrRight 是截左边的图还是右边的
+     * */
+    var obj = {
+		imgSource: image,
+		captureTime: getCurrentTime(),
+		isLeftOrRight: position
+	}
+	imgArr.push(obj);
+	console.log(imgArr);
 	
+	if(position === "left") {
+    	$(".right-content .img-content-left").append(image).css("border-bottom","2px dashed blue");
+    	
+    }
+    if(position === "right") {
+    	$(".right-content .img-content-right").append(image);
+    }
 }
 
