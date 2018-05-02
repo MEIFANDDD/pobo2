@@ -73,7 +73,7 @@ $(function() {
 		var $imageLabel = imageLabel({
 				img: $(this)[0].src,
 				only: !1,
-				editPop: false,// 禁用弹窗
+				editPop: true,// 禁用弹窗
 				close: function(t) {
 					return true;
 					//return t.length && alert(JSON.stringify(t)), !0
