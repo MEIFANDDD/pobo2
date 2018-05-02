@@ -1,0 +1,31 @@
+/** banner部分 **/
+
+.login-banner {
+	background: url(../img/banner.jpeg) no-repeat;
+}
+
+.top-height {
+	height: 300px;
+	line-height: 300px;
+}
+
+.top-height h1 {
+	color: #FFF;
+	line-height: inherit;
+	letter-spacing: 20px;
+	font-family: FangSong;
+	font-size: 55px;
+}
+
+
+/** 登陆框 **/
+
+.input-style {
+	width: 200px;
+	margin-left: 40%;
+	margin-top: 30px;
+}
+
+.input-btn {
+	margin-top: 10px;
+}
