@@ -418,7 +418,7 @@ body {
 	}
 }
 /*我自己的屏幕*/
-@media screen and (min-width: 1200px)  {
+@media screen and (min-width: 1201px)  {
 	.circle-middle {
 		width: 60px;
 		height: 60px;
@@ -434,7 +434,8 @@ body {
 		/*max-height: 320px;*/
 	}
 	.right-content {
-		max-height: 390px;
+		/*max-height: 390px;*/
+		max-height: 460px;
 		overflow-y: auto;
 	}
 	.right-footer i {

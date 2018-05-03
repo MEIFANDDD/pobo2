@@ -1,12 +1,88 @@
 # pubo
 
-**2018-05-01** 
+**2018-05-02** 896090c 分支
+>	<u>解决视频拖动时，直接卡死的问题 </u>
+
+>	<font color='red'>产生原因：</font> 之前为了控制左右两边视频同步播放，肯定是要监听视频播放的事件(注：我这里是有2个视频文件同步播放的，所以会有player2这个实例)
+```js
+	player.on("seeked",function() {
+		// 直接赋值,当然我源代码中是有设立一个中间obj对象存储的，因为我还有其他的数据需要同步控制，这里意思是一样的
+		player2.currentTime(this.currentTime());// 获取到当前的这个播放时间，也就是进度
+	});
+	// 监听上述事件，在拖动时，就一定会存在卡顿。
+```
+>	<font color='green'>解决办法：</font> 对 progress 进度条事件进行监听
+```js
+	player.on("progress",function() {
+		player2.currentTime(this.currentTime());// 获取到当前的这个播放时间，也就是进度
+	});
+```
+>   <u>解决删除图片存在的Bug,本来想删除左边视频的截图，但是却删除了右边的。</u>
+>   
+>   <font color='red'>产生原因：</font> 最初设计的时候，没有考虑到左右截图的问题，所以，所以的图片都放在一个imgArr数组中，根据点击的index，到数组中去imgArr.splice(index,1)。后面在布局的时候，已经将2个图片的盛放标签分开，之前就都方法right-content的div中，现在在这个div下面又分2个子容器img-content-left，img-content-right
+>   
+>   <font color='green'>解决办法：</font> 建立2个数组，imgLeftArr,imgRightArr,在截图时，captureImage，将left或者right这个参数传进去
+
+```js
+    if(position == "left") {
+        imgLeftArr.push(obj);
+    } else {
+        imgRightArr.push(obj);
+    }
+```
+
+>   删除时，比较关键的就是知道你点击了哪一个图片，所以，deleteObj对象在监听image的click就已经将index和left/right  2个信息保存了
+
+```js
+var index = deleteObj.index;
+var deletePosition = deleteObj.isLeftOrRight;
+
+if(deletePosition === "left") {
+    $(".right-content .img-content-left").find("img")[index].remove();
+    imgLeftArr.splice(index,1);
+} else {
+    $(".right-content .img-content-right").find("img")[index].remove();
+    imgRightArr.splice(index,1);
+}
+```
+
+>   <u>修复用户双击图片，放大后没任何操作，点击确定，仍然会向数组中push一张一模一样的图片</u>
+>    <font color='green'>解决办法：</font> 只要有任何操作，.imageLabel-content中必定存在.imageLabel-drop-edit类
+
+```js
+    if($(".imageLabel-drop-edit").length<=0) {
+        return true;
+    }
+    // 下面就是图片转canvas逻辑，然后canvas变成图片，再将图片push到页面和保存的数组中。
+```
+
+
+
+**2018-05-01** 7300d39 分支
 >   添加截图后，对右侧缩略图二次编辑的功能，之前的下载功能不影响，删除功能目前还有一个bug，因为是left和right分开了，之前的写法是没分，所以删除imgArr容器没问题，现在分开展示，需要对imgArr中的数据进行过滤
 
-**2018-04-28** 
+**2018-04-28** b4782b5 分支
 
->	解决截图中，重复触发截图事件,其实就是click事件嵌套，事件重复注册，可以取消冒泡，可以将事件由嵌套拆称2个独立的，都能解决问题
->	
+>	解决截图中，重复触发截图事件,其实就是click事件嵌套，事件重复注册，可以取消冒泡，或者将事件由嵌套拆称2个独立的，都能解决问题
+
+```js
+$(".capture-left-image").bind("click",function() {
+    if($(this).attr("disabled")) {
+        return;
+    }
+    captureImage($("#videoTag-left_html5_api").get(0),"left");
+});
+        
+$(".capture-right-image").bind("click",function() {
+    if($(this).attr("disabled")) {
+        return;
+    }
+    captureImage($("#videoTag-right_html5_api").get(0),"right");
+});
+
+```
+    
+
 >	参考链接： [http://blog.sina.com.cn/s/blog_4ffbe80f0101e6co.html](http://blog.sina.com.cn/s/blog_4ffbe80f0101e6co.html)
 
 **2018-04-27** d291b26 分支
