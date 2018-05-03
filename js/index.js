@@ -178,7 +178,7 @@ function ViewModel() {
 	self.age = ko.observable();
 	self.birthday = ko.observable();
 
-	
+
 	
 	
 	// 该方法应该再没有用到---别删除
@@ -307,6 +307,8 @@ function ViewModel() {
 			obj.scrollTop = obj.scrollHeight;
 		}
 	}
+	
+	// 缺少一个模态框的取消，确定操作，其实就只要有取消操作就可以，因为内容都是只读的，也没有修改
 }
 /*将canvas转为图片*/
 function convertCanvasToImage(canvas) {
