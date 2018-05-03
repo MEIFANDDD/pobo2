@@ -409,14 +409,14 @@
 								<div class="col-xs-12 col-sm-6 form-group">
 									<label for="name" class="col-xs-6 col-sm-5 control-label">姓名</label>
 									<div class="col-xs-6 col-sm-6">
-										<input type="text" class="form-control" id="name" disabled>
+										<input type="text" class="form-control" id="name" disabled data-bind="value:name">
 									</div>
 								</div>
 								<div class="col-xs-12 col-sm-6 form-group">
 
 									<label for="patientID" class="col-xs-6 col-sm-5  control-label">病人ID</label>
 									<div class="col-xs-6 col-sm-6">
-										<input type="text" class="form-control" id="patientID" disabled>
+										<input type="text" class="form-control" id="patientID" disabled data-bind="value:patientID">
 									</div>
 								</div>
 							</div>
@@ -424,7 +424,7 @@
 								<div class="col-xs-12 col-sm-6 form-group">
 									<label for="sex" class="col-xs-6 col-sm-5 control-label">性别</label>
 									<div class="col-xs-6 col-sm-6">
-										<input type="text" class="form-control" disabled/>
+										<input type="text" class="form-control" disabled data-bind="value:sex"/>
 										<!--<select class="form-control">
 											<option value=""></option>
 											<option value="男">男</option>
@@ -436,7 +436,7 @@
 								<div class="col-xs-12 col-sm-6 form-group">
 									<label for="age" class="col-xs-6 col-sm-5  control-label">年龄</label>
 									<div class="col-xs-4 col-sm-3">
-										<input type="number" class="form-control" id="age" disabled>
+										<input type="number" class="form-control" id="age" disabled data-bind="value:age">
 									</div>
 									<div class="col-xs-2 col-sm-3">
 										<input type="text" class="form-control" disabled value="岁"/>
@@ -453,7 +453,7 @@
 								<div class="col-xs-12 col-sm-6 form-group">
 									<label class="control-label col-xs-6 col-sm-5">生日</label>
 									<div class="col-xs-6 col-sm-6">
-										<input type="text" class="form-control" disabled/>
+										<input type="text" class="form-control" disabled data-bind="text:birthday"/>
 										<!--<div for="birthday" class="input-group date" id="birthdayBox">
 											<input type="text" class="form-control" id="birthday">
 											<span class="input-group-addon" style="cursor: pointer">
@@ -533,7 +533,7 @@
 				</div>
 			</div>
 		</div>
-			<!--模态框结束-->
+		<!--模态框结束-->
 		
 	</body>
 	<script src="js/jquery.min.js"></script>
