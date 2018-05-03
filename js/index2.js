@@ -7,13 +7,9 @@
 })();
 
 // 删除功能，指定删除对应图片的序号
-let deleteObj = {
-	index: 0,
-	isLeftOrRight: 'left'
-}
+let deleteIndex = 0;
 // 在每一次保存时，将img保存到这里
-let imgLeftArr = []; // 左
-let imgRightArr = []; // 右
+let imgArr = [];
 
 $(function() {
 	// 功能面板--左侧2组元素--夏
@@ -39,17 +35,11 @@ $(function() {
 	});
 	
 	// 获取所有的图片列表
+
 	$(".right-content").on("click","img",function(event) {
-		var imgParentClassName = $(this).parent().attr("class");
-		var isLeftOrRight = imgParentClassName.split("-")[2];
-		//console.log("当前点击的图片序号", $(this).index());
+		console.log("当前点击的图片序号", $(this).index());
 		// 获取图片序号
 		deleteIndex = $(this).index();
-		//console.log(isLeftOrRight,50);
-		deleteObj = {
-			index: deleteIndex,
-			isLeftOrRight: isLeftOrRight
-		}
 		$(this).siblings().css({
 			"border": "none"
 		});
@@ -69,63 +59,61 @@ $(function() {
 		
 		// 获取父元素的类名，通过类名 append图片
 		var parentClassName = parentNode[0].className;
+		console.log(parentClassName);
 		
 		var $imageLabel = imageLabel({
-				img: $(this)[0].src,
-				only: !1,
-				editPop: true,// 禁用弹窗
-				close: function(t) {
-					return true;
-					//return t.length && alert(JSON.stringify(t)), !0
-				},
-				clickArea: function() {},
-				edit: function(t) {},
-				startArea: function() {},
-				confirm: function(t) {
-					// 解决用户在没有任何编辑的情况下，点击保存，也会生成一张图片的问题
-					if($(".imageLabel-drop-edit").length<=0) {
-						return true;
+			//img: "https://i1.mifile.cn/f/i/18/mitv4A/40/build.jpg",
+			img: $(this)[0].src,
+			only: !1,
+			editPop: false,// 禁用弹窗
+			close: function(t) {
+				return true;
+				//return t.length && alert(JSON.stringify(t)), !0
+			},
+			clickArea: function() {},
+			edit: function(t) {},
+			startArea: function() {},
+			confirm: function(t) {
+				html2canvas($(".imageLabel-jisuan").get(0),{
+					backgroundColor: "#FFF",// 设置截图后的背景
+					allowTaint: true // 关键点
+				}).then((canvas) => {
+					
+					// 确保图层不会遮住 播放按钮--本来是准备直接移除的，但是移除后，你进一步的编辑，就会报元素找不到
+					$(".imageLabel-jisuan").css("display","none");
+					//console.log(canvas);
+					// 将canvas转变成图片，append到图片列表中
+					var img = convertCanvasToImage(canvas);
+					
+					parentNode.append(img);
+					var position = parentClassName.indexOf("left")>0?"left":"right";
+					var obj = {
+						imgSource: img,
+						captureTime: getCurrentTime(),
+						isLeftOrRight: position
 					}
-					html2canvas($(".imageLabel-jisuan").get(0),{
-						backgroundColor: "#FFF",// 设置截图后的背景
-						allowTaint: true // 关键点
-					}).then((canvas) => {
-						
-						// 确保图层不会遮住 播放按钮--本来是准备直接移除的，但是移除后，你进一步的编辑，就会报元素找不到
-						$(".imageLabel-jisuan").css("display","none");
-						//console.log(canvas);
-						// 将canvas转变成图片，append到图片列表中
-						var img = convertCanvasToImage(canvas);
-						
-						parentNode.append(img);
-						var position = parentClassName.indexOf("left")>0?"left":"right";
-						var obj = {
-							imgSource: img,
-							captureTime: getCurrentTime(),
-							isLeftOrRight: position
-						}
-						if(position === "left") {
-							imgLeftArr.push(obj);
-						} else {
-							imgRightArr.push(obj);
-						}
-						//imgArr.push(obj);
-						// 做一次ajax请求，将图片都push到服务器
-						
-					});
-					return true;
-					//return t.length && alert(JSON.stringify(t)), !0
-				}
+					imgArr.push(obj);
+					// 做一次ajax请求，将图片都push到服务器
+					
+				});
+				return true;
+				//return t.length && alert(JSON.stringify(t)), !0
+			}
 		});
 		
 		
 
 	});
 
+	
+	
+	
+	
 	// 监控数据变化
 	let vm = new ViewModel();
 	ko.applyBindings(vm);
-	
+
+
 	/**
 	 * 获取指定的URL参数值
 	 * URL:http://www.quwan.com/index?name=tyler
@@ -168,6 +156,7 @@ $(function() {
 
 		}
 	})
+
 });
 
 // 双向数据绑定
@@ -188,6 +177,9 @@ function ViewModel() {
 	self.sex = ko.observable();
 	self.age = ko.observable();
 	self.birthday = ko.observable();
+
+
+	
 	
 	// 该方法应该再没有用到---别删除
 	self.save = function() {
@@ -239,23 +231,11 @@ function ViewModel() {
 		});
 
 	}
-	/*废弃上面的 save*/
-	
-	
+
 	self.deleteImg = function() {
 		if(isExitImg()) {
-			//console.log(deleteObj,204);
-			var index = deleteObj.index;
-			var deletePosition = deleteObj.isLeftOrRight;
-			
-			if(deletePosition === "left") {
-				$(".right-content .img-content-left").find("img")[index].remove();
-				imgLeftArr.splice(index,1);
-			} else {
-				$(".right-content .img-content-right").find("img")[index].remove();
-				imgRightArr.splice(index,1);
-			}
-			
+			$(".right-content").find("img")[deleteIndex].remove();
+			imgArr.splice(deleteIndex, 1);
 		} else {
 			console.log("右侧没有缩略图");
 		}
@@ -273,19 +253,10 @@ function ViewModel() {
 			var r = type.match(/png|jpeg|bmp|gif/)[0];
 			return 'image/' + r;
 		};
-		
-		var index = deleteObj.index;
-		var deletePosition = deleteObj.isLeftOrRight;
-		let img = "";
-		let imgData = "";
-		if(deletePosition === "left") {
-			img = imgLeftArr[index];
-			imgData = img.imgSource.src.replace(_fixType("png"), 'image/octet-stream');
-		} else {
-			img = imgRightArr[index];
-			imgData = img.imgSource.src.replace(_fixType("png"), 'image/octet-stream');
-		}
-		
+
+		// imgSource是全局的
+		let imgData = imgArr[deleteIndex].imgSource.src.replace(_fixType("png"), 'image/octet-stream');
+
 		var saveFile = function(data, filename) {
 			var save_link = document.createElementNS('http://www.w3.org/1999/xhtml', 'a');
 			save_link.href = data;
@@ -295,8 +266,8 @@ function ViewModel() {
 			event.initMouseEvent('click', true, false, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
 			save_link.dispatchEvent(event);
 		};
-		//  img.captureTime --是截屏时间或者截屏后修改的标注时间
-		var filename = 'scann-' + img.captureTime + '.' + "png";
+
+		var filename = 'scann-' + imgArr[deleteIndex].currentTime + '.' + "png";
 
 		// 下载图片
 		saveFile(imgData, filename);
@@ -336,6 +307,8 @@ function ViewModel() {
 			obj.scrollTop = obj.scrollHeight;
 		}
 	}
+	
+	// 缺少一个模态框的取消，确定操作，其实就只要有取消操作就可以，因为内容都是只读的，也没有修改
 }
 /*将canvas转为图片*/
 function convertCanvasToImage(canvas) {
@@ -417,12 +390,12 @@ function handleVideoOperate(__this,className) {
 
 	// 获取当前播放的时间和速率
 	// 当改变播放时间，拖动播放轴时--同时快进和后退
-	_this.on("progress",function() {
+	_this.on("seeked",function() {
 		videoOpt.currentTime = _this.currentTime();
 		_player.currentTime(videoOpt.currentTime);
 	})
 	_this.on("waiting",function() {
-		//layer.msg("视频正在缓冲！！！");
+		//alert("视频正在缓冲");
 	});
 	// 同步声音，这里可能没有必要，影像应该是没有声音的
 	_this.on("volumechange",function() {
@@ -455,8 +428,7 @@ function handleVideoOperate(__this,className) {
 
 }
 // 到时候 ajax请求，改变地址就可以
-
-//var src = "http://zixuncr.cn/video/v2.mp4";
+/*var src = "http://zixuncr.cn/video/v1.mp4";*/
 var src = "./video/oceans.mp4";
 var player1 = videojs("videoTag-left",options);
 
@@ -468,11 +440,13 @@ player1.ready(function() {
 
 });
 // 卸载播放事件
-/*$(".video-js").on("click",function(event) {
+$(".video-js").on("click",function(event) {
 	
+	/*player1.removeEvent("play", function() {
+		console.log(1);
+	});*/
 
-
-})*/
+})
 
 var player2 = videojs("videoTag-right",options);
 player2.ready(function() {
@@ -538,17 +512,16 @@ $(".capture-right-image").bind("click",function() {
 function captureImage(video,position) {
 	
 	var canvas = document.createElement("canvas");
-	var ctx = canvas.getContext("2d");
 	canvas.width = 800;
 	canvas.height = 800;
+	var ctx = canvas.getContext("2d");
+	ctx.drawImage(video, 0, 0,800,800);
+
 	
-    var image = new Image();
-    
+    var image = document.createElement('img');
     image.setAttribute("crossOrigin",'Anonymous')
-    ctx.drawImage(video, 0, 0,800,800);
+    
     image.src =  canvas.toDataURL("image/png", 1.0);
-   
-  
     /**
      * imgSource 图片源
      * captureTime 截图时间
@@ -559,12 +532,8 @@ function captureImage(video,position) {
 		captureTime: getCurrentTime(),
 		isLeftOrRight: position
 	}
-    
-	if(position == "left") {
-		imgLeftArr.push(obj);
-	} else {
-		imgRightArr.push(obj);
-	}
+	imgArr.push(obj);
+	console.log(imgArr);
 	
 	if(position === "left") {
     	$(".right-content .img-content-left").append(image).css("border-bottom","2px dashed blue");
