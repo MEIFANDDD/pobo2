@@ -47,12 +47,12 @@
 				width: 500px;
 			}
 			/*隐藏输入框*/
-			.imageLabel-input-box {
+			/*.imageLabel-input-box {
 				display: none;
-			}
+			}*/
 			/*保证截图时，编辑的区域是可见额*/
 			.imageLabel-imgdrop {
-				background: transparent;
+				background: transparent !important;
 			}
 			/*保证截图的标记边框是红色的*/
 			.imageLabel-imgdrop.imageLabel-drop-edit {
@@ -62,7 +62,14 @@
 			.imageLabel-imgdrop {
 				border: 2px solid red;
 			}
-			
+			/*修改文字位置*/
+			.imageLabel-drop-edit .imageLabel-imgdrop-font {
+				width: auto !important;
+				height: auto !important;
+				left: 0;
+				top: 0;
+				padding-left: 6px;
+			}
 		</style>
 	</head>
 
@@ -343,43 +350,27 @@
 										<div class="circle"><i class="fa fa-user-circle fa-2x"></i></div>
 										<span class="title">信息</span>
 									</button>
-									<button class="btn btn-group-lg" type="button" data-bind="click:save">
-										<div class="circle"><i class="fa fa-save fa-2x"></i></div>
-										<span>保存</span>
-									</button>
-									<button class="btn btn-group-lg" type="button">
-										<div class="circle"><i class="fa fa-database fa-2x"></i></div>
-										<span>保存参数</span>
-									</button>
-								</div>
-								<div class="btn-group btn-group-2 btn-list" style="display: none;">
-									<button class="btn btn-group-lg" type="button">
-										<div class="circle"><i class="fa fa-edit fa-2x"></i></div>
-										<span class="title">注释</span>
-									</button>
-									<button class="btn btn-group-lg" type="button">
-										<div class="circle"><i class="fa fa-user-circle fa-2x"></i></div>
-										<span>动态范围</span>
-									</button>
 									<button class="btn btn-group-lg" type="button">
 										<div class="circle">
 											<i class="fa fa-file-text fa-2x"></i>
 										</div>
 										<span>报告</span>
 									</button>
+									
 								</div>
+								
 							</div>
 							<!--切换按钮-->
 							<div class="col-sm-2 col-md-2 col-lg-2">
 								<!--lg-->
-								<div class="btn-group">
+								<!--<div class="btn-group">
 									<button class="btn clear-bg xia-btn-left" type="button">
 										<div class="circle-middle"><i class="fa fa-chevron-left fa-2x"></i></div>
 									</button>
 									<button class="btn clear-bg xia-btn-right" type="button">
 										<div class="circle-middle"><i class="fa fa-chevron-right fa-2x"></i></div>
 									</button>
-								</div>
+								</div>-->
 							</div>
 	
 							<div class="col-sm-5 col-md-5 col-lg-5">
@@ -389,10 +380,7 @@
 										<div class="circle"><i class="fa fa-wpexplorer fa-2x"></i></div>
 										<span>测量</span>
 									</button>
-									<button class="btn btn-group-lg btnB-style" type="button">
-										<div class="circle"><i class="fa fa-user-circle fa-2x"></i></div>
-										<span>增益</span>
-									</button>
+								
 									<button class="btn btn-group-lg" type="button" disabled="disabled">
 										<div class="circle"><i class="fa  fa-search-plus fa-2x"></i></div>
 										<span>放大</span>
@@ -545,7 +533,7 @@
 				</div>
 			</div>
 		</div>
-			<!--模态框结束-->
+		<!--模态框结束-->
 		
 	</body>
 	<script src="js/jquery.min.js"></script>
@@ -563,7 +551,4 @@
 	<script src="js/jquery.imageLabel.min.js"></script>
 	<script src="js/index.js"></script>
 
-	<script>
-
-	</script>
 </html>
