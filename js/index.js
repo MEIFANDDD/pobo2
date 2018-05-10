@@ -88,13 +88,16 @@ $(function() {
 						return true;
 					}
 					html2canvas($(".imageLabel-jisuan").get(0),{
-						backgroundColor: "#FFF",// 设置截图后的背景
+						backgroundColor: "#FFF" ,// 设置截图后的背景
 						allowTaint: true // 关键点
 					}).then((canvas) => {
 						
 						// 确保图层不会遮住 播放按钮--本来是准备直接移除的，但是移除后，你进一步的编辑，就会报元素找不到
 						$(".imageLabel-jisuan").css("display","none");
 						//console.log(canvas);
+						if($(".imageLabel-drop-edit").length<=0) {
+							return true;
+						}
 						// 将canvas转变成图片，append到图片列表中
 						var img = convertCanvasToImage(canvas);
 						
@@ -130,8 +133,8 @@ $(function() {
 	/**
 	 * 获取指定的URL参数值
 	 * URL:http://www.quwan.com/index?name=tyler
-	 * 参数：paramName URL参数
-	 * 调用方法:getParam("name")
+	 * 参数：variable URL参数
+	 * 调用方法:getQueryVariable("name")
 	 * 返回值:tyler
 	 */
 	var id = getQueryVariable("id");
@@ -154,16 +157,16 @@ $(function() {
 		dataType:"json",
 		success: function(data) {
 			console.log(data);
-			vm.height(data.height);
-			vm.weight(data.weight);
-			vm.age(data.age);
-			vm.name(data.name);
-			vm.patientID(data.id);
-			vm.sex(data.sex);
-			vm.age(data.age);
-			vm.chekDesc(data.description);
-			vm.pastHistory(data.history);
-			vm.chiefComplaint(data.options);
+			vm.height(data[0].height);
+			vm.weight(data[0].width);
+			vm.age(data[0].age);
+			vm.name(data[0].name);
+			vm.patientID(data[0].id);
+			vm.sex(data[0].sex);
+			vm.age(data[0].age);
+			vm.chekDesc(data[0].description);
+			vm.pastHistory(data[0].history);
+			vm.chiefComplaint(data[0].options);
 		},
 		error: function(error) {
 
@@ -442,11 +445,11 @@ function handleVideoOperate(__this,className) {
 	// 做事件监听
 	_this.on('ended',function() {
 		$(".playBtn").attr("disabled",true);
-		
-		alert("结束");
+
+		layer.msg("结束");
 	
 		// 提示医生，切换病人信息吧，ajax
-		videojs.log('视频结束');
+		layer.msg("结束");
 	})
 	//
 	_this.on("error",function(error) {

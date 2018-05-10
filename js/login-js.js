@@ -13,9 +13,11 @@ $(function() {
             async:false,
             dataType:"json",
             success:function (data) {
+                console.log(data)
                 if (us == data[0].username && ps == data[0].password){
                     layer.msg("登陆成功");
-                    setTimeout("window.location.href='patientdata.html'",1000);
+                    setTimeout("window.location.href='patientlist.html'",1000);
+                    //window.location.href='patientList.html';
                 }else{
                     layer.msg("用户名或密码错误");
                 }

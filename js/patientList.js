@@ -1,4 +1,45 @@
 $(function() {
+	$.ajax({
+		type:"post",
+		url:"getAllPatient",
+		async:false,
+		dataType:"json",
+		success:function (data) {console.log(data);
+			for (let i = 0; i<data.length; i++){
+				$(".palist").append("<tr><td>"+data[i].id+"</td><td class=''><a href='index.html?id="+data[i].id+"'>"+data[i].name+"</a></td><td>"+data[i].sex+"</td><td>"+data[i].age+"</td><td>"+data[i].phone+"</td><td>"+data[i].address+"</td><td class='text-center'><div><a href='javascript:void(0);' data-bind='click:detailInfo'><i class='fa fa-eye bt-history' data-id='"+data[i].id+"'></i></a><a href='javascript:void(0);' data-bind='click:edit'><i class='fa fa-edit'></i></a></div></td></tr>");
+			};
+		}
+	});
+
+	$(".bt-history").click(function () {
+		let id = $(this).attr("data-id");
+		$.ajax({
+			type:"post",
+			url:"getHistoryPatient",
+			data:{'id':id},
+			async:false,
+			dataType:"json",
+			success:function (data) {
+				$(".history-tr").remove();
+				console.log(data);
+				for (var i = 0; i<data.length; i++){
+					$(".history").append("<tr class='history-tr'><td>"+(i+1)+"</td><td>"+data[i].description+"</td><td>"+data[i].principal+"</td><td>"+data[i].history+"</td><td>"+data[i].source+"</td><td>"+data[i].type+"</td><td>"+data[i].date+"</td><td><a href='#'>"+data[i].status+"</a></td></tr>");
+				}
+				$(".patient-history").css("display","block");
+			}
+		})
+	});
+
+	$(".bt-search").click(function () {
+		let name = vm.name();
+		let sex = vm.selectedSex();
+		let id = vm.doctor();
+		let st = vm.startTime();
+		let et = vm.endTime();
+		alert(name);
+		console.log(st)
+	})
+
 	$("#startTime input").datetimepicker({
 		format: "Y-m-d",
         hours24: 'true',
