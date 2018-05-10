@@ -6,12 +6,12 @@ $(function() {
 		dataType:"json",
 		success:function (data) {console.log(data);
 			for (let i = 0; i<data.length; i++){
-				$(".palist").append("<tr><td>"+data[i].id+"</td><td class=''><a href='index.html?id="+data[i].id+"'>"+data[i].name+"</a></td><td>"+data[i].sex+"</td><td>"+data[i].age+"</td><td>"+data[i].phone+"</td><td>"+data[i].address+"</td><td class='text-center'><div><a href='javascript:void(0);' data-bind='click:detailInfo'><i class='fa fa-eye' data-id='"+data[i].id+"'></i></a><a href='javascript:void(0);' data-bind='click:edit'><i class='fa fa-edit'></i></a></div></td></tr>");
+				$(".palist").append("<tr><td>"+data[i].id+"</td><td class=''><a href='index.html?id="+data[i].id+"'>"+data[i].name+"</a></td><td>"+data[i].sex+"</td><td>"+data[i].age+"</td><td>"+data[i].phone+"</td><td>"+data[i].address+"</td><td class='text-center'><div><a href='javascript:void(0);' data-bind='click:detailInfo'><i class='fa fa-eye bt-history' data-id='"+data[i].id+"'></i></a><a href='javascript:void(0);' data-bind='click:edit'><i class='fa fa-edit'></i></a></div></td></tr>");
 			};
 		}
 	});
 
-	$(".fa-eye").click(function () {
+	$(".bt-history").click(function () {
 		let id = $(this).attr("data-id");
 		$.ajax({
 			type:"post",
@@ -29,6 +29,16 @@ $(function() {
 			}
 		})
 	});
+
+	$(".bt-search").click(function () {
+		let name = vm.name();
+		let sex = vm.selectedSex();
+		let id = vm.doctor();
+		let st = vm.startTime();
+		let et = vm.endTime();
+		alert(name);
+		console.log(st)
+	})
 
 	$("#startTime input").datetimepicker({
 		format: "Y-m-d",
