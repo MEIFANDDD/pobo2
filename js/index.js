@@ -84,6 +84,7 @@ $(function() {
 				confirm: function(t) {
 					// 解决用户在没有任何编辑的情况下，点击保存，也会生成一张图片的问题
 					if($(".imageLabel-drop-edit").length<=0) {
+						$(".imageLabel-jisuan").css("display","none");
 						return true;
 					}
 					html2canvas($(".imageLabel-jisuan").get(0),{
